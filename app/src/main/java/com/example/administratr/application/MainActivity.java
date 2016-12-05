@@ -9,7 +9,10 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
 
+    int count = 0;
 
+    String[] hiraganaWords = {"ひらがな","にく","おはよ"};
+    String[] hiraganaAnswers = {"hiragana","niku","ohayo"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,13 +42,16 @@ public class MainActivity extends AppCompatActivity {
     private void hiraganaQuiz() {
         final EditText hiraganaTextInput = (EditText) findViewById(R.id.hiragana_text_input);
         final TextView hiraganaText = (TextView) findViewById(R.id.hiragana_text);
+        hiraganaText.setText(hiraganaWords[count]);
         // Check if the input of the EditText is the same as the hiragana from the TextView
         findViewById(R.id.hiragana_next).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final String hiragana = hiraganaTextInput.getText().toString();
-                if (hiragana.equals("hiragana")) {
-                    hiraganaText.setText("meme");
+                if (hiragana.equals(hiraganaAnswers[count])) {
+                    count += 1;
+                    hiraganaTextInput.setText("");
+                    hiraganaText.setText(hiraganaWords[count]);
                 }
             }
         });
