@@ -1,6 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#626262">
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/hiragana_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ひらがな"
+        android:textSize="40sp"
+        android:textColor="#000"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="120dp"/>
+
+    <EditText
+        android:id="@+id/hiragana_text_input"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/hiragana_text"
+        android:layout_marginTop="60dp"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/hiragana_text"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/hiragana_next"
+        android:onClick="hiraganaNextClick"
+        android:text="NEXT"/>
+</RelativeLayout>
