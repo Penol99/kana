@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 final String hiragana = hiraganaTextInput.getText().toString();
                 if (hiragana.equals(hiraganaAnswers.get(count))) {
-                    count = rand.nextInt(randLimit);
+                    //count = rand.nextInt(randLimit);
                     hiraganaTextInput.setText("");
                     hiraganaWords.remove(count);
                     hiraganaAnswers.remove(count);
