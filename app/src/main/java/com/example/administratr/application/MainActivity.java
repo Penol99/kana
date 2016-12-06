@@ -6,13 +6,30 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Random;
+import java.util.Set;
+
 public class MainActivity extends AppCompatActivity {
 
-
     int count = 0;
+    int randLimit = 3;
+    Random rand = new Random();
+    ArrayList<String> hiraganaWords = new ArrayList<String>();
+    ArrayList<String> hiraganaAnswers = new ArrayList<String>();
 
-    String[] hiraganaWords = {"ひらがな","にく","おはよ"};
-    String[] hiraganaAnswers = {"hiragana","niku","ohayo"};
+    public void HiraganaAnswers(){
+        hiraganaAnswers.add("hiragana");
+        hiraganaAnswers.add("niku");
+        hiraganaAnswers.add("ohayo");
+    }
+    public void HiraganaWords() {
+        hiraganaWords.add("ひらがな");
+        hiraganaWords.add("にく");
+        hiraganaWords.add("おはよ");
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,20 +55,28 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.katakana_layout);
     }
 
+
     // Quiz methods
     private void hiraganaQuiz() {
+        HiraganaWords();
+        HiraganaAnswers();
         final EditText hiraganaTextInput = (EditText) findViewById(R.id.hiragana_text_input);
         final TextView hiraganaText = (TextView) findViewById(R.id.hiragana_text);
-        hiraganaText.setText(hiraganaWords[count]);
+        hiraganaText.setText(hiraganaWords.get(count));
         // Check if the input of the EditText is the same as the hiragana from the TextView
         findViewById(R.id.hiragana_next).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final String hiragana = hiraganaTextInput.getText().toString();
-                if (hiragana.equals(hiraganaAnswers[count])) {
-                    count += 1;
+                if (hiragana.equals(hiraganaAnswers.get(count))) {
+                    count = rand.nextInt(randLimit);
                     hiraganaTextInput.setText("");
-                    hiraganaText.setText(hiraganaWords[count]);
+                    hiraganaWords.remove(count);
+                    hiraganaAnswers.remove(count);
+                    randLimit -= 1;
+                    count = rand.nextInt(randLimit);
+                    hiraganaText.setText(hiraganaWords.get(count));
+
                 }
             }
         });
