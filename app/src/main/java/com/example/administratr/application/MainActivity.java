@@ -15,20 +15,33 @@ import java.util.Set;
 public class MainActivity extends AppCompatActivity {
 
     int count = 0;
-    int randLimit = 3;
+    int randLimit = 9;
     Random rand = new Random();
     ArrayList<String> hiraganaWords = new ArrayList<String>();
     ArrayList<String> hiraganaAnswers = new ArrayList<String>();
 
     public void HiraganaAnswers(){
-        hiraganaAnswers.add("hiragana");
+        hiraganaAnswers.add("konbanwa");
         hiraganaAnswers.add("niku");
         hiraganaAnswers.add("ohayo");
+        hiraganaAnswers.add("oyasumi");
+        hiraganaAnswers.add("okaasan");
+        hiraganaAnswers.add("zenbu");
+        hiraganaAnswers.add("yakusoku");
+        hiraganaAnswers.add("gochisousama");
+        hiraganaAnswers.add("tabete io");
     }
     public void HiraganaWords() {
-        hiraganaWords.add("ひらがな");
+        hiraganaWords.add("こんばんは");
         hiraganaWords.add("にく");
         hiraganaWords.add("おはよ");
+        hiraganaWords.add("おやすみ");
+        hiraganaWords.add("おかあさん");
+        hiraganaWords.add("ぜんぶ");
+        hiraganaWords.add("やくそく");
+        hiraganaWords.add("ごちそうさま");
+        hiraganaWords.add("たべていお");
+
     }
 
     @Override

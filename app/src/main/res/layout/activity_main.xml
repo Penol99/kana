@@ -8,14 +8,14 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="#626262"
+    android:background="#787878"
     tools:context="com.example.administratr.application.MainActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Learn Kana"
-        android:textColor="#8ed400"
+        android:textColor="#8ed"
         android:fontFamily="sans-serif-condensed"
         android:textSize="60sp"/>
 
