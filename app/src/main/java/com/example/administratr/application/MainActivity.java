@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         hiraganaTranslation.add("You can eat it");
 
     }
-
+    int amountOfHiraganaWords = 8;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -97,6 +97,10 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.hiragana_next).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                amountOfHiraganaWords -= 1;
+                if (amountOfHiraganaWords == 0){
+                    setContentView(R.layout.activity_main);
+                }
                 final String hiragana = hiraganaTextInput.getText().toString();
                 if (hiragana.equals(hiraganaAnswers.get(count))) {
                     hiraganaTextInput.setText("");
