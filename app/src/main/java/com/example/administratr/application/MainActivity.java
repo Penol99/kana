@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
                     // Removes the word that already has been shown from the array when answered to correctly
                     hiraganaWords.remove(count);
                     hiraganaAnswers.remove(count);
-                    hiraganaTranslation.remove(count;)
+                    hiraganaTranslation.remove(count);
                     randLimit -= 1;
                     count = rand.nextInt(randLimit);
                     // Change the current word of the translation and the hiragana
