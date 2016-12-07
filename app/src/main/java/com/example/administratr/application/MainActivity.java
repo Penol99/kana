@@ -99,12 +99,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 final String hiragana = hiraganaTextInput.getText().toString();
                 if (hiragana.equals(hiraganaAnswers.get(count))) {
-                    //count = rand.nextInt(randLimit);
                     hiraganaTextInput.setText("");
+                    // Removes the word that already has been shown from the array when answered to correctly
                     hiraganaWords.remove(count);
                     hiraganaAnswers.remove(count);
+                    hiraganaTranslation.remove(count;)
                     randLimit -= 1;
                     count = rand.nextInt(randLimit);
+                    // Change the current word of the translation and the hiragana
                     hiraganaText.setText(hiraganaWords.get(count));
                     hiraganaTranslationText.setText(hiraganaTranslation.get(count));
 
