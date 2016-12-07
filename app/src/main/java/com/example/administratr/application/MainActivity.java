@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     Random rand = new Random();
     ArrayList<String> hiraganaWords = new ArrayList<String>();
     ArrayList<String> hiraganaAnswers = new ArrayList<String>();
-
+    ArrayList<String> hiraganaTranslation = new ArrayList<String>();
     public void HiraganaAnswers(){
         hiraganaAnswers.add("konbanwa");
         hiraganaAnswers.add("niku");
@@ -41,6 +41,19 @@ public class MainActivity extends AppCompatActivity {
         hiraganaWords.add("やくそく");
         hiraganaWords.add("ごちそうさま");
         hiraganaWords.add("たべていお");
+
+    }
+
+    public void HiraganaTranslation() {
+        hiraganaTranslation.add("Good evening");
+        hiraganaTranslation.add("Meat");
+        hiraganaTranslation.add("Good morning");
+        hiraganaTranslation.add("Good night");
+        hiraganaTranslation.add("Mother");
+        hiraganaTranslation.add("Everything/All");
+        hiraganaTranslation.add("Promise");
+        hiraganaTranslation.add("Thanks for the meal");
+        hiraganaTranslation.add("You can eat it");
 
     }
 
@@ -73,9 +86,13 @@ public class MainActivity extends AppCompatActivity {
     private void hiraganaQuiz() {
         HiraganaWords();
         HiraganaAnswers();
+        HiraganaTranslation();
         final EditText hiraganaTextInput = (EditText) findViewById(R.id.hiragana_text_input);
         final TextView hiraganaText = (TextView) findViewById(R.id.hiragana_text);
+        final TextView hiraganaTranslationText = (TextView) findViewById(R.id.english_translation);
         hiraganaText.setText(hiraganaWords.get(count));
+        hiraganaTranslationText.setText(hiraganaTranslation.get(count));
+        //hiraganaTranslationText.setText(hiraganaTranslation.get(count));
         // Check if the input of the EditText is the same as the hiragana from the TextView
         findViewById(R.id.hiragana_next).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,6 +106,7 @@ public class MainActivity extends AppCompatActivity {
                     randLimit -= 1;
                     count = rand.nextInt(randLimit);
                     hiraganaText.setText(hiraganaWords.get(count));
+                    hiraganaTranslationText.setText(hiraganaTranslation.get(count));
 
                 }
             }
