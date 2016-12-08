@@ -3,7 +3,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#626262">
+    android:background="#607D8B">
 
     <TextView
         android:id="@+id/hiragana_text"
@@ -29,6 +29,7 @@
         android:layout_below="@+id/hiragana_text"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
+        android:background="#03A9F4"
         android:id="@+id/hiragana_next"
         android:onClick="hiraganaNextClick"
         android:text="NEXT"/>

@@ -16,6 +16,8 @@ public class MainActivity extends AppCompatActivity {
 
     int count = 0;
     int randLimit = 9;
+    int hirWords = 8;
+    int amountOfHiraganaWords = hirWords;
     Random rand = new Random();
     ArrayList<String> hiraganaWords = new ArrayList<String>();
     ArrayList<String> hiraganaAnswers = new ArrayList<String>();
@@ -56,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         hiraganaTranslation.add("You can eat it");
 
     }
-    int amountOfHiraganaWords = 8;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,7 +83,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.katakana_layout);
     }
 
-
+    public void restartButton() {
+        // Needs to get changed so that it will on the other alphabets and not just hiragana
+        setContentView(R.layout.hiragana_layout);
+    }
+    public  void menuButton() {
+        setContentView(R.layout.activity_main);
+    }
     // Quiz methods
     private void hiraganaQuiz() {
         HiraganaWords();
@@ -99,7 +107,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 amountOfHiraganaWords -= 1;
                 if (amountOfHiraganaWords == 0){
-                    setContentView(R.layout.activity_main);
+                    setContentView(R.layout.result_layout);
+
                 }
                 final String hiragana = hiraganaTextInput.getText().toString();
                 if (hiragana.equals(hiraganaAnswers.get(count))) {

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#607D8B">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Result"
+        android:textSize="25sp"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="16dp"
+        android:textColor="#FFFFFF"/>
+    <TextView
+        android:id="@+id/time_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Time:"
+        android:textSize="20sp"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="34dp"
+        android:textColor="#000"/>
+    <TextView
+        android:id="@+id/mistakes_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mistakes:"
+        android:textSize="20sp"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="34dp"
+        android:textColor="#c20a04"/>
+    <TextView
+        android:id="@+id/correct_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Correct:"
+        android:textSize="20sp"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="34dp"
+        android:textColor="#8ed400"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.03"
+        android:layout_marginTop="180dp">
+
+        <Button
+            android:id="@+id/return_to_menu"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:background="#03A9F4"
+            android:text="Menu"
+            android:layout_marginLeft="16dp"
+            android:onClick="menuButton"/>
+        <Button
+            android:id="@+id/restart_game"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:background="#03A9F4"
+            android:text="restart"
+            android:layout_marginLeft="48dp"
+            android:layout_alignParentRight="true"
+            android:onClick="restartButton"/>
+
+    </LinearLayout>
+
+</LinearLayout>
