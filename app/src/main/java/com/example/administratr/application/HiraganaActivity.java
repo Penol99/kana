@@ -22,11 +22,13 @@ public class HiraganaActivity extends AppCompatActivity {
     int amountOfMistakes = 0;
     int amountOfHiraganaWords = hirWords;
     int amountOfCorrects = 0;
-
+    static boolean kat = false;
+    static boolean hir = false;
     Random rand = new Random();
     ArrayList<String> hiraganaWords = new ArrayList<String>();
     ArrayList<String> hiraganaAnswers = new ArrayList<String>();
     ArrayList<String> hiraganaTranslation = new ArrayList<String>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,56 +37,62 @@ public class HiraganaActivity extends AppCompatActivity {
         hiraganaQuiz();
     }
     // Amount of words now = 13
-
+    //TODO: add word variation arrays
     public void HiraganaAnswers(){
-        hiraganaAnswers.add("konbanwa");
-        hiraganaAnswers.add("niku");
-        hiraganaAnswers.add("ohayo");
-        hiraganaAnswers.add("oyasumi");
-        hiraganaAnswers.add("okaasan");
-        hiraganaAnswers.add("zenbu");
-        hiraganaAnswers.add("yakusoku");
-        hiraganaAnswers.add("gochisousama");
-        hiraganaAnswers.add("tabete io");
-        hiraganaAnswers.add("iie");
-        hiraganaAnswers.add("gomenasai");
-        hiraganaAnswers.add("wakarimasen");
-        hiraganaAnswers.add("yoku wakarimasu");
-        hiraganaAnswers.add("ogenki desu ka");
+        if (hir == true) {
+            hiraganaAnswers.add("konbanwa");
+            hiraganaAnswers.add("niku");
+            hiraganaAnswers.add("ohayo");
+            hiraganaAnswers.add("oyasumi");
+            hiraganaAnswers.add("okaasan");
+            hiraganaAnswers.add("zenbu");
+            hiraganaAnswers.add("yakusoku");
+            hiraganaAnswers.add("gochisousama");
+            hiraganaAnswers.add("tabete io");
+            hiraganaAnswers.add("iie");
+            hiraganaAnswers.add("gomenasai");
+            hiraganaAnswers.add("wakarimasen");
+            hiraganaAnswers.add("yoku wakarimasu");
+            hiraganaAnswers.add("ogenki desu ka");
+        }
     }
     public void HiraganaWords() {
-        hiraganaWords.add("こんばんは");
-        hiraganaWords.add("にく");
-        hiraganaWords.add("おはよ");
-        hiraganaWords.add("おやすみ");
-        hiraganaWords.add("おかあさん");
-        hiraganaWords.add("ぜんぶ");
-        hiraganaWords.add("やくそく");
-        hiraganaWords.add("ごちそうさま");
-        hiraganaWords.add("たべていお");
-        hiraganaWords.add("いいえ");
-        hiraganaWords.add("ごめんなさい");
-        hiraganaWords.add("わかりません");
-        hiraganaWords.add("よくわかります");
-        hiraganaWords.add("おげんきですか");
+        if (hir == true) {
+            hiraganaWords.add("こんばんは");
+            hiraganaWords.add("にく");
+            hiraganaWords.add("おはよ");
+            hiraganaWords.add("おやすみ");
+            hiraganaWords.add("おかあさん");
+            hiraganaWords.add("ぜんぶ");
+            hiraganaWords.add("やくそく");
+            hiraganaWords.add("ごちそうさま");
+            hiraganaWords.add("たべていお");
+            hiraganaWords.add("いいえ");
+            hiraganaWords.add("ごめんなさい");
+            hiraganaWords.add("わかりません");
+            hiraganaWords.add("よくわかります");
+            hiraganaWords.add("おげんきですか");
+        }
 
     }
 
     public void HiraganaTranslation() {
-        hiraganaTranslation.add("Good evening");
-        hiraganaTranslation.add("Meat");
-        hiraganaTranslation.add("Good morning");
-        hiraganaTranslation.add("Good night");
-        hiraganaTranslation.add("Mother");
-        hiraganaTranslation.add("Everything/All");
-        hiraganaTranslation.add("Promise");
-        hiraganaTranslation.add("Thanks for the meal");
-        hiraganaTranslation.add("You can eat it");
-        hiraganaTranslation.add("No");
-        hiraganaTranslation.add("I'm Sorry");
-        hiraganaTranslation.add("I don't understand");
-        hiraganaTranslation.add("I understand you perfectly");
-        hiraganaTranslation.add("How are youå");
+        if (hir == true) {
+            hiraganaTranslation.add("Good evening");
+            hiraganaTranslation.add("Meat");
+            hiraganaTranslation.add("Good morning");
+            hiraganaTranslation.add("Good night");
+            hiraganaTranslation.add("Mother");
+            hiraganaTranslation.add("Everything/All");
+            hiraganaTranslation.add("Promise");
+            hiraganaTranslation.add("Thanks for the meal");
+            hiraganaTranslation.add("You can eat it");
+            hiraganaTranslation.add("No");
+            hiraganaTranslation.add("I'm Sorry");
+            hiraganaTranslation.add("I don't understand");
+            hiraganaTranslation.add("I understand you perfectly");
+            hiraganaTranslation.add("How are you");
+        }
 
     }
 
@@ -94,6 +102,12 @@ public class HiraganaActivity extends AppCompatActivity {
         TextView mistakes = (TextView) findViewById(R.id.mistakes_view);
         correct.setText("Correct: " + amountOfCorrects);
         mistakes.setText("Mistakes: " + amountOfMistakes);
+        if (amountOfMistakes == 0) {
+            correct.setText("You completed all of them!");
+        }
+        if (amountOfCorrects <= 0) {
+            correct.setText("You made to many mistakes!");
+        }
     }
 
     private void hiraganaQuiz() {
@@ -106,13 +120,13 @@ public class HiraganaActivity extends AppCompatActivity {
         final TextView hiraganaTranslationText = (TextView) findViewById(R.id.english_translation);
         hiraganaText.setText(hiraganaWords.get(count));
         hiraganaTranslationText.setText(hiraganaTranslation.get(count));
-        //hiraganaTranslationText.setText(hiraganaTranslation.get(count));
+        //hiraganaTranslationText.setText(katakanaTranslation.get(count));
         // Check if the input of the EditText is the same as the hiragana from the TextView
         findViewById(R.id.hiragana_next).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final String hiragana = hiraganaTextInput.getText().toString();
-                if (hiragana.equals(hiraganaAnswers.get(count))) {
+                if (hiragana.replace(" ", "").equalsIgnoreCase(hiraganaAnswers.get(count).replace(" ", ""))) {
                     amountOfCorrects += 1;
                     amountOfHiraganaWords -= 1;
                     if (amountOfHiraganaWords == 0){
@@ -146,6 +160,7 @@ public class HiraganaActivity extends AppCompatActivity {
 
                 } else if (!hiragana.equals(hiraganaAnswers.get(count))){
                     amountOfMistakes += 1;
+                    amountOfCorrects -= 1;
                 }
             }
         });

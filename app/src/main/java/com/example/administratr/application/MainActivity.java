@@ -34,12 +34,16 @@ public class MainActivity extends AppCompatActivity {
     public void hiraganaButtonClick(View view)  {
 
         startActivity(new Intent(MainActivity.this, HiraganaActivity.class));
+        HiraganaActivity.hir = true;
+        HiraganaActivity.kat = false;
 
     }
 
     public void katakanaButtonClick(View view)  {
 
-        setContentView(R.layout.katakana_layout);
+        startActivity(new Intent(MainActivity.this, HiraganaActivity.class));
+        HiraganaActivity.hir = false;
+        HiraganaActivity.kat = true;
     }
 
 
@@ -48,8 +52,8 @@ public class MainActivity extends AppCompatActivity {
         TextView wordCountView = (TextView) findViewById(R.id.amount_of_words_view);
         wordCount += 1;
         wordCountView.setText(String.valueOf(wordCount));
-        if (wordCount >= HiraganaActivity.randLimit) {
-            wordCount = HiraganaActivity.randLimit-1;
+        if (wordCount >= HiraganaActivity.randLimit-1) {
+            wordCount = HiraganaActivity.randLimit-2;
         }
         uniWordCount2 = wordCount;
     }
