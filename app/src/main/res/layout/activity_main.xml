@@ -38,6 +38,7 @@
             android:textSize="25sp"
             android:fontFamily="sans-serif"
             android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
             android:background="#448AFF"
             android:textColor="#212121"
             android:onClick="hiraganaButtonClick"
@@ -74,19 +75,21 @@
     <Button
         android:text="+"
         android:textSize="50sp"
-        android:layout_width="200dp"
-        android:layout_height="70dp"
-        android:layout_marginBottom="37dp"
+        android:textColor="#8ed400"
+        android:layout_width="70dp"
+        android:layout_height="60dp"
+        android:background="#03A9F4"
         android:id="@+id/more_words_button"
+        android:onClick="moreWords"
         android:layout_above="@+id/linearLayout"
-        android:layout_toRightOf="@+id/textView"
-        android:layout_toEndOf="@+id/textView"
-        android:onClick="moreWords"/>
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <TextView
-        android:text="10"
+        android:text="0"
         android:textSize="30sp"
-        android:layout_width="36dp"
+        android:textColor="#FFFFFF"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/amount_of_words_view"
         android:layout_alignBaseline="@+id/more_words_button"
@@ -97,14 +100,15 @@
     <Button
         android:text="-"
         android:textSize="50sp"
-        android:layout_width="200dp"
-        android:layout_height="70dp"
+        android:textColor="#c20a04"
+        android:background="#03A9F4"
+        android:layout_width="70dp"
+        android:layout_height="60dp"
         android:id="@+id/less_words_button"
-        android:layout_alignBaseline="@+id/amount_of_words_view"
-        android:layout_alignBottom="@+id/amount_of_words_view"
+        android:onClick="lessWords"
+        android:layout_above="@+id/linearLayout"
         android:layout_toLeftOf="@+id/amount_of_words_view"
-        android:layout_toStartOf="@+id/amount_of_words_view"
-        android:onClick="lessWords"/>
+        android:layout_toStartOf="@+id/amount_of_words_view" />
 
 
 </RelativeLayout>

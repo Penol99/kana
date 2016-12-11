@@ -14,12 +14,15 @@ import java.util.Set;
 
 public class HiraganaActivity extends AppCompatActivity {
 
+
+
     int count = 0;
-    int randLimit = 13;
-    int hirWords = 12;
+    static int randLimit = 13;
+    int hirWords = MainActivity.uniWordCount2;
     int amountOfMistakes = 0;
     int amountOfHiraganaWords = hirWords;
     int amountOfCorrects = 0;
+
     Random rand = new Random();
     ArrayList<String> hiraganaWords = new ArrayList<String>();
     ArrayList<String> hiraganaAnswers = new ArrayList<String>();
@@ -84,6 +87,7 @@ public class HiraganaActivity extends AppCompatActivity {
         hiraganaTranslation.add("How are youå");
 
     }
+
 
     public void results() {
         TextView correct = (TextView) findViewById(R.id.correct_view);

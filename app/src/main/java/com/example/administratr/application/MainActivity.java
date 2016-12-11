@@ -14,6 +14,10 @@ import java.util.Set;
 
 public class MainActivity extends AppCompatActivity {
 
+
+    int  wordCount = 0;
+    static int uniWordCount = HiraganaActivity.randLimit-1;
+    static int uniWordCount2 = 0;
      @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void hiraganaButtonClick(View view)  {
+
         startActivity(new Intent(MainActivity.this, HiraganaActivity.class));
 
     }
@@ -35,6 +40,28 @@ public class MainActivity extends AppCompatActivity {
     public void katakanaButtonClick(View view)  {
 
         setContentView(R.layout.katakana_layout);
+    }
+
+
+    public void moreWords(View viewwww) {
+
+        TextView wordCountView = (TextView) findViewById(R.id.amount_of_words_view);
+        wordCount += 1;
+        wordCountView.setText(String.valueOf(wordCount));
+        if (wordCount >= HiraganaActivity.randLimit) {
+            wordCount = HiraganaActivity.randLimit-1;
+        }
+        uniWordCount2 = wordCount;
+    }
+    public void lessWords(View viewwwww) {
+        if (wordCount <= 0) {
+            wordCount = 1;
+        }
+        TextView wordCountView = (TextView) findViewById(R.id.amount_of_words_view);
+        wordCount -= 1;
+        wordCountView.setText(String.valueOf(wordCount));
+
+        uniWordCount2 = wordCount;
     }
 
 
