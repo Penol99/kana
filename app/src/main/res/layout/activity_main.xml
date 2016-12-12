@@ -72,56 +72,7 @@
 
     </LinearLayout>
 
-    <Button
-        android:text="+"
-        android:textSize="50sp"
-        android:textColor="#8ed400"
-        android:layout_width="70dp"
-        android:layout_height="60dp"
-        android:background="#03A9F4"
-        android:id="@+id/more_words_button"
-        android:onClick="moreWords"
-        android:layout_above="@+id/linearLayout"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
 
-    <TextView
-        android:text="0"
-        android:textSize="30sp"
-        android:textColor="#FFFFFF"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/amount_of_words_view"
-        android:layout_alignBaseline="@+id/more_words_button"
-        android:layout_alignBottom="@+id/more_words_button"
-        android:layout_toLeftOf="@+id/more_words_button"
-        android:layout_toStartOf="@+id/more_words_button" />
-
-    <Button
-        android:text="-"
-        android:textSize="50sp"
-        android:textColor="#c20a04"
-        android:background="#03A9F4"
-        android:layout_width="70dp"
-        android:layout_height="60dp"
-        android:id="@+id/less_words_button"
-        android:onClick="lessWords"
-        android:layout_above="@+id/linearLayout"
-        android:layout_toLeftOf="@+id/amount_of_words_view"
-        android:layout_toStartOf="@+id/amount_of_words_view" />
-
-    <TextView
-        android:text="Amout of words"
-        android:textSize="20sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/less_words_button"
-        android:layout_alignLeft="@+id/less_words_button"
-        android:layout_alignStart="@+id/less_words_button"
-        android:layout_marginBottom="26dp"
-        android:id="@+id/textView3"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
 
 
 </RelativeLayout>

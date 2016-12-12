@@ -17,8 +17,8 @@ public class HiraganaActivity extends AppCompatActivity {
 
 
     int count = 0;
-    static int randLimit = 13;
-    int hirWords = MainActivity.uniWordCount2;
+    int randLimit = 14;
+    int hirWords = randLimit;
     int amountOfMistakes = 0;
     int amountOfHiraganaWords = hirWords;
     int amountOfCorrects = 0;
@@ -40,6 +40,9 @@ public class HiraganaActivity extends AppCompatActivity {
     //TODO: add word variation arrays
     public void HiraganaAnswers(){
         if (hir == true) {
+            randLimit = 14;
+            hirWords = randLimit;
+            hiraganaAnswers.clear();
             hiraganaAnswers.add("konbanwa");
             hiraganaAnswers.add("niku");
             hiraganaAnswers.add("ohayo");
@@ -54,10 +57,22 @@ public class HiraganaActivity extends AppCompatActivity {
             hiraganaAnswers.add("wakarimasen");
             hiraganaAnswers.add("yoku wakarimasu");
             hiraganaAnswers.add("ogenki desu ka");
+            hiraganaAnswers.add("");
+        } else if (kat == true) {
+            randLimit = 4;
+            hirWords = randLimit;
+            hiraganaAnswers.clear();
+            hiraganaAnswers.add("furaidopoteto");
+            hiraganaAnswers.add("mafura");
+            hiraganaAnswers.add("depato");
+            hiraganaAnswers.add("faito");
+            hiraganaAnswers.add("");
+
         }
     }
     public void HiraganaWords() {
         if (hir == true) {
+            hiraganaWords.clear();
             hiraganaWords.add("こんばんは");
             hiraganaWords.add("にく");
             hiraganaWords.add("おはよ");
@@ -72,12 +87,21 @@ public class HiraganaActivity extends AppCompatActivity {
             hiraganaWords.add("わかりません");
             hiraganaWords.add("よくわかります");
             hiraganaWords.add("おげんきですか");
+            hiraganaWords.add("");
+        } else if (kat == true) {
+            hiraganaWords.clear();
+            hiraganaWords.add("フライデポテト");
+            hiraganaWords.add("マフラ");
+            hiraganaWords.add("デパ-ト");
+            hiraganaWords.add("ファイト");
+            hiraganaWords.add("");
         }
 
     }
 
     public void HiraganaTranslation() {
         if (hir == true) {
+            hiraganaTranslation.clear();
             hiraganaTranslation.add("Good evening");
             hiraganaTranslation.add("Meat");
             hiraganaTranslation.add("Good morning");
@@ -92,6 +116,14 @@ public class HiraganaActivity extends AppCompatActivity {
             hiraganaTranslation.add("I don't understand");
             hiraganaTranslation.add("I understand you perfectly");
             hiraganaTranslation.add("How are you");
+            hiraganaTranslation.add("");
+        } else if (kat == true) {
+            hiraganaTranslation.clear();
+            hiraganaTranslation.add("French fries");
+            hiraganaTranslation.add("Scarf");
+            hiraganaTranslation.add("Department Store");
+            hiraganaTranslation.add("Go for it!");
+            hiraganaTranslation.add("");
         }
 
     }
@@ -111,7 +143,6 @@ public class HiraganaActivity extends AppCompatActivity {
     }
 
     private void hiraganaQuiz() {
-
         HiraganaWords();
         HiraganaAnswers();
         HiraganaTranslation();
