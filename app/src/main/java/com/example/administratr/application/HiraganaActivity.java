@@ -14,21 +14,18 @@ import java.util.Set;
 
 public class HiraganaActivity extends AppCompatActivity {
 
-
-
     int count = 0;
-    int randLimit = 14;
+    int randLimit = 4;
     int hirWords = randLimit;
     int amountOfMistakes = 0;
-    int amountOfHiraganaWords = hirWords;
+    int amountOfHiraganaWords = hirWords-1;
     int amountOfCorrects = 0;
-    static boolean kat = false;
     static boolean hir = false;
+    static boolean kat = false;
     Random rand = new Random();
     ArrayList<String> hiraganaWords = new ArrayList<String>();
     ArrayList<String> hiraganaAnswers = new ArrayList<String>();
     ArrayList<String> hiraganaTranslation = new ArrayList<String>();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,12 +33,17 @@ public class HiraganaActivity extends AppCompatActivity {
         setContentView(R.layout.hiragana_layout);
         hiraganaQuiz();
     }
-    // Amount of words now = 13
-    //TODO: add word variation arrays
+
+
+
+    private void changeKana() {
+        randLimit = hiraganaAnswers.size();
+        hirWords = randLimit;
+        amountOfHiraganaWords = hiraganaAnswers.size()-1;
+    }
+
     public void HiraganaAnswers(){
         if (hir == true) {
-            randLimit = 14;
-            hirWords = randLimit;
             hiraganaAnswers.clear();
             hiraganaAnswers.add("konbanwa");
             hiraganaAnswers.add("niku");
@@ -53,21 +55,18 @@ public class HiraganaActivity extends AppCompatActivity {
             hiraganaAnswers.add("gochisousama");
             hiraganaAnswers.add("tabete io");
             hiraganaAnswers.add("iie");
-            hiraganaAnswers.add("gomenasai");
+            hiraganaAnswers.add("gomennasai");
             hiraganaAnswers.add("wakarimasen");
             hiraganaAnswers.add("yoku wakarimasu");
             hiraganaAnswers.add("ogenki desu ka");
-            hiraganaAnswers.add("");
+            changeKana();
         } else if (kat == true) {
-            randLimit = 4;
-            hirWords = randLimit;
             hiraganaAnswers.clear();
             hiraganaAnswers.add("furaidopoteto");
             hiraganaAnswers.add("mafura");
             hiraganaAnswers.add("depato");
             hiraganaAnswers.add("faito");
-            hiraganaAnswers.add("");
-
+            changeKana();
         }
     }
     public void HiraganaWords() {
@@ -87,18 +86,14 @@ public class HiraganaActivity extends AppCompatActivity {
             hiraganaWords.add("わかりません");
             hiraganaWords.add("よくわかります");
             hiraganaWords.add("おげんきですか");
-            hiraganaWords.add("");
         } else if (kat == true) {
             hiraganaWords.clear();
             hiraganaWords.add("フライデポテト");
             hiraganaWords.add("マフラ");
             hiraganaWords.add("デパ-ト");
             hiraganaWords.add("ファイト");
-            hiraganaWords.add("");
         }
-
     }
-
     public void HiraganaTranslation() {
         if (hir == true) {
             hiraganaTranslation.clear();
@@ -116,16 +111,13 @@ public class HiraganaActivity extends AppCompatActivity {
             hiraganaTranslation.add("I don't understand");
             hiraganaTranslation.add("I understand you perfectly");
             hiraganaTranslation.add("How are you");
-            hiraganaTranslation.add("");
         } else if (kat == true) {
             hiraganaTranslation.clear();
             hiraganaTranslation.add("French fries");
             hiraganaTranslation.add("Scarf");
             hiraganaTranslation.add("Department Store");
             hiraganaTranslation.add("Go for it!");
-            hiraganaTranslation.add("");
         }
-
     }
 
 
@@ -134,8 +126,8 @@ public class HiraganaActivity extends AppCompatActivity {
         TextView mistakes = (TextView) findViewById(R.id.mistakes_view);
         correct.setText("Correct: " + amountOfCorrects);
         mistakes.setText("Mistakes: " + amountOfMistakes);
-        if (amountOfMistakes == 0) {
-            correct.setText("You completed all of them!");
+        if (amountOfMistakes == 0 ) {
+            correct.setText("You completed them all!");
         }
         if (amountOfCorrects <= 0) {
             correct.setText("You made to many mistakes!");
@@ -151,7 +143,7 @@ public class HiraganaActivity extends AppCompatActivity {
         final TextView hiraganaTranslationText = (TextView) findViewById(R.id.english_translation);
         hiraganaText.setText(hiraganaWords.get(count));
         hiraganaTranslationText.setText(hiraganaTranslation.get(count));
-        //hiraganaTranslationText.setText(katakanaTranslation.get(count));
+        //hiraganaTranslationText.setText(hiraganaTranslation.get(count));
         // Check if the input of the EditText is the same as the hiragana from the TextView
         findViewById(R.id.hiragana_next).setOnClickListener(new View.OnClickListener() {
             @Override
