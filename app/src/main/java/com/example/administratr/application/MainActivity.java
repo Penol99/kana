@@ -29,14 +29,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void hiraganaButtonClick(View view)  {
-        startActivity(new Intent(MainActivity.this, HiraganaActivity.class));
+        startActivity(new Intent(MainActivity.this, kanaActivity.class));
         kanaActivity.hir = true;
         kanaActivity.kat = false;
 
     }
 
     public void katakanaButtonClick(View view)  {
-        startActivity(new Intent(MainActivity.this, HiraganaActivity.class));
+        startActivity(new Intent(MainActivity.this, kanaActivity.class));
         kanaActivity.hir = false;
         kanaActivity.kat = true;
     }
