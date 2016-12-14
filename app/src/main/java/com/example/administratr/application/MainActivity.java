@@ -30,15 +30,15 @@ public class MainActivity extends AppCompatActivity {
 
     public void hiraganaButtonClick(View view)  {
         startActivity(new Intent(MainActivity.this, HiraganaActivity.class));
-        HiraganaActivity.hir = true;
-        HiraganaActivity.kat = false;
+        kanaActivity.hir = true;
+        kanaActivity.kat = false;
 
     }
 
     public void katakanaButtonClick(View view)  {
         startActivity(new Intent(MainActivity.this, HiraganaActivity.class));
-        HiraganaActivity.hir = false;
-        HiraganaActivity.kat = true;
+        kanaActivity.hir = false;
+        kanaActivity.kat = true;
     }
 
 
