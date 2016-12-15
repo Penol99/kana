@@ -27,7 +27,7 @@ public class kanaActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.hiragana_layout);
+        setContentView(R.layout.kana_layout);
         kanaQuiz();
     }
 
