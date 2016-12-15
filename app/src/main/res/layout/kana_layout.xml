@@ -6,7 +6,7 @@
     android:background="#607D8B">
 
     <TextView
-        android:id="@+id/hiragana_text"
+        android:id="@+id/kana_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ひらがな"
@@ -16,21 +16,21 @@
         android:layout_marginTop="120dp"/>
 
     <EditText
-        android:id="@+id/hiragana_text_input"
+        android:id="@+id/kana_text_input"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_below="@id/hiragana_text"
+        android:layout_below="@id/kana_text"
         android:layout_marginTop="60dp"
         android:layout_centerHorizontal="true"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/hiragana_text"
+        android:layout_below="@+id/kana_text"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:background="#03A9F4"
-        android:id="@+id/hiragana_next"
+        android:id="@+id/kana_next"
         android:onClick="hiraganaNextClick"
         android:text="NEXT"/>
 
@@ -42,6 +42,6 @@
         android:textColor="#8ed400"
         android:textSize="25sp"
         android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/hiragana_text"
-        android:layout_alignStart="@+id/hiragana_text" />
+        android:layout_alignLeft="@+id/kana_text"
+        android:layout_alignStart="@+id/kana_text" />
 </RelativeLayout>

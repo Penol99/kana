@@ -39,7 +39,7 @@ public class kanaActivity extends AppCompatActivity {
         amountOfKanaWords = kanaAnswers.size()-1;
     }
 
-    public void HiraganaAnswers(){
+    public void KanaAnswers(){
         if (hir == true) {
             kanaAnswers.clear();
             kanaAnswers.add("konbanwa");
@@ -63,10 +63,11 @@ public class kanaActivity extends AppCompatActivity {
             kanaAnswers.add("mafura");
             kanaAnswers.add("depato");
             kanaAnswers.add("fuaito");
+            kanaAnswers.add("gemu");
             changeKana();
         }
     }
-    public void HiraganaWords() {
+    public void KanaWords() {
         if (hir == true) {
             kanaWords.clear();
             kanaWords.add("こんばんは");
@@ -87,11 +88,12 @@ public class kanaActivity extends AppCompatActivity {
             kanaWords.clear();
             kanaWords.add("フライデポテト");
             kanaWords.add("マフラ");
-            kanaWords.add("デパ-ト");
+            kanaWords.add("デパート");
             kanaWords.add("ファイト");
+            kanaWords.add("ゲーム");
         }
     }
-    public void HiraganaTranslation() {
+    public void KanaTranslation() {
         if (hir == true) {
             kanaTranslation.clear();
             kanaTranslation.add("Good evening");
@@ -114,6 +116,7 @@ public class kanaActivity extends AppCompatActivity {
             kanaTranslation.add("Scarf");
             kanaTranslation.add("Department Store");
             kanaTranslation.add("Go for it!");
+            kanaTranslation.add("Game");
         }
     }
 
@@ -132,21 +135,21 @@ public class kanaActivity extends AppCompatActivity {
     }
 
     private void kanaQuiz() {
-        HiraganaWords();
-        HiraganaAnswers();
-        HiraganaTranslation();
-        final EditText hiraganaTextInput = (EditText) findViewById(R.id.hiragana_text_input);
-        final TextView hiraganaText = (TextView) findViewById(R.id.hiragana_text);
-        final TextView hiraganaTranslationText = (TextView) findViewById(R.id.english_translation);
-        hiraganaText.setText(kanaWords.get(count));
-        hiraganaTranslationText.setText(kanaTranslation.get(count));
-        //hiraganaTranslationText.setText(kanaTranslation.get(count));
+        KanaWords();
+        KanaAnswers();
+        KanaTranslation();
+        final EditText kanaTextInput = (EditText) findViewById(R.id.kana_text_input);
+        final TextView kanaText = (TextView) findViewById(R.id.kana_text);
+        final TextView kanaTranslationText = (TextView) findViewById(R.id.english_translation);
+        kanaText.setText(kanaWords.get(count));
+        kanaTranslationText.setText(kanaTranslation.get(count));
+        //kanaTranslationText.setText(kanaTranslation.get(count));
         // Check if the input of the EditText is the same as the hiragana from the TextView
-        findViewById(R.id.hiragana_next).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.kana_next).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final String hiragana = hiraganaTextInput.getText().toString();
-                if (hiragana.replace(" ", "").equalsIgnoreCase(kanaAnswers.get(count).replace(" ", ""))) {
+                final String kana = kanaTextInput.getText().toString();
+                if (kana.replace(" ", "").equalsIgnoreCase(kanaAnswers.get(count).replace(" ", ""))) {
                     amountOfCorrects += 1;
                     amountOfKanaWords -= 1;
                     if (amountOfKanaWords == 0){
@@ -167,18 +170,18 @@ public class kanaActivity extends AppCompatActivity {
                         });
 
                     }
-                    hiraganaTextInput.setText("");
+                    kanaTextInput.setText("");
                     // Removes the word that already has been shown from the array when answered to correctly
                     kanaWords.remove(count);
                     kanaAnswers.remove(count);
                     kanaTranslation.remove(count);
                     randLimit -= 1;
                     count = rand.nextInt(randLimit);
-                    // Change the current word of the translation and the hiragana
-                    hiraganaText.setText(kanaWords.get(count));
-                    hiraganaTranslationText.setText(kanaTranslation.get(count));
+                    // Change the current word of the translation and the kana
+                    kanaText.setText(kanaWords.get(count));
+                    kanaTranslationText.setText(kanaTranslation.get(count));
 
-                } else if (!hiragana.equals(kanaAnswers.get(count))){
+                } else if (!kana.equals(kanaAnswers.get(count))){
                     amountOfMistakes += 1;
                     amountOfCorrects -= 1;
                 }
