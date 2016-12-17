@@ -29,7 +29,7 @@
         android:textSize="20sp"
         android:layout_marginTop="16dp"
         android:layout_marginLeft="34dp"
-        android:textColor="#c20a04"/>
+        android:textColor="#ff0000"/>
     <TextView
         android:id="@+id/correct_view"
         android:layout_width="match_parent"

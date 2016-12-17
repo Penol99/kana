@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Switch;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,23 +17,33 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
+    public boolean toggleWordLetterSwitch() {
+        Switch wordToggle = (Switch) findViewById(R.id.toggle);
+        boolean switchState = wordToggle.isChecked();
+
+        return switchState;
+    }
     //Button presses
-    public void kanaButtonClick(View view)  {
-        
+    public void kanjiButtonClick(View view)  {
+
     }
 
     public void hiraganaButtonClick(View view)  {
-        startActivity(new Intent(MainActivity.this, kanaActivity.class));
-        kanaActivity.hir = true;
-        kanaActivity.kat = false;
+        if (toggleWordLetterSwitch()== false) {
+            startActivity(new Intent(MainActivity.this, kanaActivity.class));
+            kanaActivity.hir = true;
+            kanaActivity.kat = false;
+        }
 
     }
 
-    public void katakanaButtonClick(View view)  {
-        startActivity(new Intent(MainActivity.this, kanaActivity.class));
-        kanaActivity.hir = false;
-        kanaActivity.kat = true;
+    public void katakanaButtonClick(View view) {
+        if (toggleWordLetterSwitch() == false) {
+            startActivity(new Intent(MainActivity.this, kanaActivity.class));
+            kanaActivity.hir = false;
+            kanaActivity.kat = true;
+        }
     }
-
 
 }

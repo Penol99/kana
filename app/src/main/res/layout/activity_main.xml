@@ -19,14 +19,7 @@
         android:textSize="40sp"
         android:id="@+id/textView" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text = "Words"
-        android:layout_above="@id/linearLayout"
-        android:layout_alignParentRight="true"
-        android:textSize="40sp"
-        android:textColor="#FFFF"/>
+
     <LinearLayout
         android:layout_width="150dp"
         android:layout_height="250dp"
@@ -50,16 +43,16 @@
             android:onClick="hiraganaButtonClick"
             android:textAllCaps="false"/>
         <Button
-            android:id="@+id/kana_button"
+            android:id="@+id/kanji_button"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:text="Kana"
+            android:text="Kanji"
             android:textSize="25sp"
             android:background="#03A9F4"
             android:fontFamily="sans-serif"
             android:textColor="#212121"
-            android:onClick="kanaButtonClick"
+            android:onClick="kanjiButtonClick"
             android:textAllCaps="false"/>
         <Button
             android:id="@+id/katakana_button"
@@ -74,11 +67,41 @@
             android:textColor="#212121"
             android:onClick="katakanaButtonClick"
             android:textAllCaps="false"/>
-
-
     </LinearLayout>
 
+    <Switch
+        android:text=" "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/toggle"
+        android:layout_marginBottom="39dp"
+        android:layout_above="@+id/linearLayout"
+        android:layout_centerHorizontal="true"
+        />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text = "Words"
+        android:textSize="20sp"
+        android:textColor="#FFFF"
+        android:id="@+id/word_view"
+        android:layout_marginRight="13dp"
+        android:layout_marginEnd="13dp"
+        android:layout_alignBottom="@+id/toggle"
+        android:layout_toLeftOf="@+id/toggle"
+        android:layout_toStartOf="@+id/toggle" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text = "Letters"
+        android:textSize="20sp"
+        android:textColor="#FFFF"
+        android:id="@+id/letter_view"
+        android:layout_alignBottom="@+id/toggle"
+        android:layout_alignLeft="@+id/linearLayout"
+        android:layout_alignStart="@+id/linearLayout" />
 
 
 </RelativeLayout>

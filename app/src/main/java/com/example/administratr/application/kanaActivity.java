@@ -86,7 +86,7 @@ public class kanaActivity extends AppCompatActivity {
             kanaWords.add("おげんきですか");
         } else if (kat == true) {
             kanaWords.clear();
-            kanaWords.add("フライデポテト");
+            kanaWords.add("フライドポテト");
             kanaWords.add("マフラ");
             kanaWords.add("デパート");
             kanaWords.add("ファイト");

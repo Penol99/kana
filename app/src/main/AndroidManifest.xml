@@ -15,7 +15,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".kanaActivity"></activity>
+        <activity android:name=".kanaActivity" />
+        <activity android:name=".kanaLetterActivity"></activity>
     </application>
 
 </manifest>
