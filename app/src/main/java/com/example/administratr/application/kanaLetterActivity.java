@@ -190,7 +190,6 @@ public class kanaLetterActivity extends AppCompatActivity {
         count = rand.nextInt(amountOfWords);
         currentRomaji.add(romajiLetters.get(count));
         button1.setText(hiraganaLetters.get(count));
-        currentKana.add(String.valueOf(button1.getText()));
         romajiLetters.remove(count);
         hiraganaLetters.remove(count);
         amountOfWords -= 1;
@@ -198,7 +197,6 @@ public class kanaLetterActivity extends AppCompatActivity {
         count = rand.nextInt(amountOfWords);
         currentRomaji.add(romajiLetters.get(count));
         button2.setText(hiraganaLetters.get(count));
-        currentKana.add(String.valueOf(button2.getText()));
         romajiLetters.remove(count);
         hiraganaLetters.remove(count);
         amountOfWords -= 1;
@@ -206,7 +204,6 @@ public class kanaLetterActivity extends AppCompatActivity {
         count = rand.nextInt(amountOfWords);
         currentRomaji.add(romajiLetters.get(count));
         button3.setText(hiraganaLetters.get(count));
-        currentKana.add(String.valueOf(button3.getText()));
         romajiLetters.remove(count);
         hiraganaLetters.remove(count);
         amountOfWords -= 1;
@@ -217,33 +214,32 @@ public class kanaLetterActivity extends AppCompatActivity {
         currentKana.add(String.valueOf(button4.getText()));
 
         final int count2 = rand.nextInt(2);
-        final String current_kana = currentKana.get(count2);
         romajiText.setText(currentRomaji.get(count2));
 
         button1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View V) {
-                if (current_kana == currentKana.get(0)) {
+                if (count2 == 0) {
                     buttonText();
                 }
             }
         });
         button2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View V) {
-                if (current_kana == currentKana.get(1)) {
+                if (count2 == 1) {
                     buttonText();
                 }
             }
         });
         button3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View V) {
-                if (current_kana == currentKana.get(2)) {
+                if (count2 == 2) {
                     buttonText();
                 }
             }
         });
         button4.setOnClickListener(new View.OnClickListener() {
             public void onClick(View V) {
-                if (current_kana == currentKana.get(3)) {
+                if (count2 == 3) {
                     buttonText();
                 }
             }
