@@ -1,4 +1,4 @@
-package com.example.administratr.application;
+package com.example.administratr.kana;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

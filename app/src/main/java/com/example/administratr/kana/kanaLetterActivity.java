@@ -1,4 +1,4 @@
-package com.example.administratr.application;
+package com.example.administratr.kana;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,6 +13,8 @@ public class kanaLetterActivity extends AppCompatActivity {
 
     int amountOfWords = 46;
     Random rand = new Random();
+    static boolean hir = false;
+    static boolean kat = false;
     ArrayList<String> hiraganaLetters = new ArrayList<String>();
     ArrayList<String> katakanaLetters = new ArrayList<String>();
     ArrayList<String> romajiLetters = new ArrayList<String>();
@@ -167,10 +169,10 @@ public class kanaLetterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.kana_letter_activity);
-        buttonText();
+        ButtonAndTextHandling();
     }
 
-    public void buttonText() {
+    public void ButtonAndTextHandling() {
         amountOfWords = 46;
         int count;
         hiraganaLetters.clear();
@@ -186,32 +188,51 @@ public class kanaLetterActivity extends AppCompatActivity {
         Button button3 = (Button) findViewById(R.id.answer_buton_3);
         Button button4 = (Button) findViewById(R.id.answer_buton_4);
         TextView romajiText = (TextView) findViewById(R.id.romaji_text_view);
-
+        //Change kana on the words and randomize the place of the array it will pick from
+        // and then remove that place so that the next button wont accidentally get the same
         count = rand.nextInt(amountOfWords);
         currentRomaji.add(romajiLetters.get(count));
-        button1.setText(hiraganaLetters.get(count));
+        if (hir) {
+            button1.setText(hiraganaLetters.get(count));
+        } else if (kat) {
+            button1.setText(katakanaLetters.get(count));
+        }
         romajiLetters.remove(count);
         hiraganaLetters.remove(count);
+        katakanaLetters.remove(count);
         amountOfWords -= 1;
 
         count = rand.nextInt(amountOfWords);
         currentRomaji.add(romajiLetters.get(count));
-        button2.setText(hiraganaLetters.get(count));
+        if (hir) {
+            button2.setText(hiraganaLetters.get(count));
+        } else if (kat) {
+            button2.setText(katakanaLetters.get(count));
+        }
         romajiLetters.remove(count);
         hiraganaLetters.remove(count);
+        katakanaLetters.remove(count);
         amountOfWords -= 1;
 
         count = rand.nextInt(amountOfWords);
         currentRomaji.add(romajiLetters.get(count));
-        button3.setText(hiraganaLetters.get(count));
+        if (hir) {
+            button3.setText(hiraganaLetters.get(count));
+        } else if (kat) {
+            button3.setText(katakanaLetters.get(count));
+        }
         romajiLetters.remove(count);
         hiraganaLetters.remove(count);
+        katakanaLetters.remove(count);
         amountOfWords -= 1;
 
         count = rand.nextInt(amountOfWords);
         currentRomaji.add(romajiLetters.get(count));
-        button4.setText(hiraganaLetters.get(count));
-        currentKana.add(String.valueOf(button4.getText()));
+        if (hir) {
+            button4.setText(hiraganaLetters.get(count));
+        } else if (kat) {
+            button4.setText(katakanaLetters.get(count));
+        }
 
         final int count2 = rand.nextInt(2);
         romajiText.setText(currentRomaji.get(count2));
@@ -219,28 +240,28 @@ public class kanaLetterActivity extends AppCompatActivity {
         button1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View V) {
                 if (count2 == 0) {
-                    buttonText();
+                    ButtonAndTextHandling();
                 }
             }
         });
         button2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View V) {
                 if (count2 == 1) {
-                    buttonText();
+                    ButtonAndTextHandling();
                 }
             }
         });
         button3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View V) {
                 if (count2 == 2) {
-                    buttonText();
+                    ButtonAndTextHandling();
                 }
             }
         });
         button4.setOnClickListener(new View.OnClickListener() {
             public void onClick(View V) {
                 if (count2 == 3) {
-                    buttonText();
+                    ButtonAndTextHandling();
                 }
             }
         });

@@ -1,4 +1,4 @@
-package com.example.administratr.application;
+package com.example.administratr.kana;
 
 import org.junit.Test;
 

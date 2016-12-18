@@ -1,11 +1,10 @@
-package com.example.administratr.application;
+package com.example.administratr.kana;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Switch;
-import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -36,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
             kanaActivity.kat = false;
         } else {
             startActivity(new Intent(MainActivity.this, kanaLetterActivity.class));
+            kanaLetterActivity.hir = true;
+            kanaLetterActivity.kat = false;
         }
 
     }
@@ -47,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
             kanaActivity.kat = true;
         } else {
             startActivity(new Intent(MainActivity.this, kanaLetterActivity.class));
+            kanaLetterActivity.hir = false;
+            kanaLetterActivity.kat = true;
         }
     }
 

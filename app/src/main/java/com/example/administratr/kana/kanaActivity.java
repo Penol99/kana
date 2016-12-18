@@ -1,4 +1,4 @@
-package com.example.administratr.application;
+package com.example.administratr.kana;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
