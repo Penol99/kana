@@ -1,10 +1,9 @@
 package com.example.administratr.application;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
+import android.widget.Button;
 import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.Random;
@@ -12,11 +11,15 @@ import java.util.Random;
 public class kanaLetterActivity extends AppCompatActivity {
 
 
+    int amountOfWords = 46;
+    Random rand = new Random();
     ArrayList<String> hiraganaLetters = new ArrayList<String>();
     ArrayList<String> katakanaLetters = new ArrayList<String>();
     ArrayList<String> romajiLetters = new ArrayList<String>();
+    ArrayList<String> currentRomaji = new ArrayList<String>();
+    ArrayList<String> currentKana = new ArrayList<String>();
 
-    public void HiraganaLetter() {
+    public void HiraganaLetters() {
         hiraganaLetters.add("あ");
         hiraganaLetters.add("い");
         hiraganaLetters.add("う");
@@ -64,12 +67,181 @@ public class kanaLetterActivity extends AppCompatActivity {
         hiraganaLetters.add("を");
         hiraganaLetters.add("ん");
     }
-
+    public void KatakanaLetters() {
+        katakanaLetters.add("ア");
+        katakanaLetters.add("イ");
+        katakanaLetters.add("ウ");
+        katakanaLetters.add("エ");
+        katakanaLetters.add("オ");
+        katakanaLetters.add("カ");
+        katakanaLetters.add("キ");
+        katakanaLetters.add("ク");
+        katakanaLetters.add("ケ");
+        katakanaLetters.add("コ");
+        katakanaLetters.add("サ");
+        katakanaLetters.add("シ");
+        katakanaLetters.add("ス");
+        katakanaLetters.add("セ");
+        katakanaLetters.add("ソ");
+        katakanaLetters.add("タ");
+        katakanaLetters.add("チ");
+        katakanaLetters.add("ツ");
+        katakanaLetters.add("テ");
+        katakanaLetters.add("ト");
+        katakanaLetters.add("ナ");
+        katakanaLetters.add("ニ");
+        katakanaLetters.add("ヌ");
+        katakanaLetters.add("ネ");
+        katakanaLetters.add("ノ");
+        katakanaLetters.add("ハ");
+        katakanaLetters.add("ヒ");
+        katakanaLetters.add("フ");
+        katakanaLetters.add("ヘ");
+        katakanaLetters.add("ホ");
+        katakanaLetters.add("マ");
+        katakanaLetters.add("ミ");
+        katakanaLetters.add("ム");
+        katakanaLetters.add("メ");
+        katakanaLetters.add("モ");
+        katakanaLetters.add("ヤ");
+        katakanaLetters.add("ユ");
+        katakanaLetters.add("ヨ");
+        katakanaLetters.add("ラ");
+        katakanaLetters.add("リ");
+        katakanaLetters.add("ル");
+        katakanaLetters.add("レ");
+        katakanaLetters.add("ロ");
+        katakanaLetters.add("ワ");
+        katakanaLetters.add("ヲ");
+        katakanaLetters.add("ン");
+    }
+    public void RomajiLetters() {
+        romajiLetters.add("a");
+        romajiLetters.add("i");
+        romajiLetters.add("u");
+        romajiLetters.add("e");
+        romajiLetters.add("o");
+        romajiLetters.add("ka");
+        romajiLetters.add("ki");
+        romajiLetters.add("ku");
+        romajiLetters.add("ke");
+        romajiLetters.add("ko");
+        romajiLetters.add("sa");
+        romajiLetters.add("shi");
+        romajiLetters.add("su");
+        romajiLetters.add("se");
+        romajiLetters.add("so");
+        romajiLetters.add("ta");
+        romajiLetters.add("chi");
+        romajiLetters.add("tsu");
+        romajiLetters.add("te");
+        romajiLetters.add("to");
+        romajiLetters.add("na");
+        romajiLetters.add("ni");
+        romajiLetters.add("nu");
+        romajiLetters.add("ne");
+        romajiLetters.add("no");
+        romajiLetters.add("ha");
+        romajiLetters.add("hi");
+        romajiLetters.add("fu");
+        romajiLetters.add("he");
+        romajiLetters.add("ho");
+        romajiLetters.add("ma");
+        romajiLetters.add("mi");
+        romajiLetters.add("mu");
+        romajiLetters.add("me");
+        romajiLetters.add("mo");
+        romajiLetters.add("ya");
+        romajiLetters.add("yu");
+        romajiLetters.add("yo");
+        romajiLetters.add("ra");
+        romajiLetters.add("ri");
+        romajiLetters.add("ru");
+        romajiLetters.add("re");
+        romajiLetters.add("ro");
+        romajiLetters.add("wa");
+        romajiLetters.add("wo");
+        romajiLetters.add("n");
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.kana_letter_activity);
+        buttonText();
     }
 
+    public void buttonText() {
+        hiraganaLetters.clear();
+        katakanaLetters.clear();
+        currentKana.clear();
+        currentRomaji.clear();
+        HiraganaLetters();
+        KatakanaLetters();
+        RomajiLetters();
+        Button button1 = (Button) findViewById(R.id.answer_buton_1);
+        Button button2 = (Button) findViewById(R.id.answer_buton_2);
+        Button button3 = (Button) findViewById(R.id.answer_buton_3);
+        Button button4 = (Button) findViewById(R.id.answer_buton_4);
+        TextView romajiText = (TextView) findViewById(R.id.romaji_text_view);
+        amountOfWords = 46;
+        int count;
 
+        count = rand.nextInt(amountOfWords);
+        currentRomaji.add(romajiLetters.get(count));
+        currentKana.add(romajiLetters.get(count));
+        button1.setText(hiraganaLetters.get(count));
+        hiraganaLetters.remove(count);
+        amountOfWords -= 1;
+        count = rand.nextInt(amountOfWords);
+        currentRomaji.add(romajiLetters.get(count));
+        currentKana.add(romajiLetters.get(count));
+        button2.setText(hiraganaLetters.get(count));
+        hiraganaLetters.remove(count);
+        amountOfWords -= 1;
+        count = rand.nextInt(amountOfWords);
+        currentRomaji.add(romajiLetters.get(count));
+        currentKana.add(romajiLetters.get(count));
+        button3.setText(hiraganaLetters.get(count));
+        hiraganaLetters.remove(count);
+        amountOfWords -= 1;
+        count = rand.nextInt(amountOfWords);
+        currentRomaji.add(romajiLetters.get(count));
+        currentKana.add(romajiLetters.get(count));
+        button4.setText(hiraganaLetters.get(count));
+
+        final int count2 = rand.nextInt(3);
+
+        romajiText.setText(currentRomaji.get(count2));
+
+        button1.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View V) {
+                if (count2 == 0) {
+                    buttonText();
+                }
+            }
+        });
+        button2.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View V) {
+                if (count2 == 1) {
+                    buttonText();
+                }
+            }
+        });
+        button3.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View V) {
+                if (count2 == 2) {
+                    buttonText();
+                }
+            }
+        });
+        button4.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View V) {
+                if (count2 == 3) {
+                    buttonText();
+                }
+            }
+        });
+
+
+    }
 }

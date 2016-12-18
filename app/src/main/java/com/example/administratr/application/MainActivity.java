@@ -34,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(MainActivity.this, kanaActivity.class));
             kanaActivity.hir = true;
             kanaActivity.kat = false;
+        } else {
+            startActivity(new Intent(MainActivity.this, kanaLetterActivity.class));
         }
 
     }
@@ -43,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(MainActivity.this, kanaActivity.class));
             kanaActivity.hir = false;
             kanaActivity.kat = true;
+        } else {
+            startActivity(new Intent(MainActivity.this, kanaLetterActivity.class));
         }
     }
 

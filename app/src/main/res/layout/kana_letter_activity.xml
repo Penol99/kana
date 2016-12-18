@@ -24,24 +24,28 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:textSize="60sp"
             android:onClick="answerButton1"/>
         <Button
             android:id="@+id/answer_buton_2"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:textSize="60sp"
             android:onClick="answerButton2"/>
         <Button
             android:id="@+id/answer_buton_3"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:textSize="60sp"
             android:onClick="answerButton3"/>
         <Button
             android:id="@+id/answer_buton_4"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:textSize="60sp"
             android:onClick="answerButton4"/>
 
     </LinearLayout>
@@ -51,7 +55,7 @@
         android:layout_height="300dp"
         android:text=""
         android:textSize="150sp"
-        android:id="@+id/textView2"
+        android:id="@+id/romaji_text_view"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
