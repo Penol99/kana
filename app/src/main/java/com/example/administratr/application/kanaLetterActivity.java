@@ -171,10 +171,13 @@ public class kanaLetterActivity extends AppCompatActivity {
     }
 
     public void buttonText() {
+        amountOfWords = 46;
+        int count;
         hiraganaLetters.clear();
         katakanaLetters.clear();
         currentKana.clear();
         currentRomaji.clear();
+        romajiLetters.clear();
         HiraganaLetters();
         KatakanaLetters();
         RomajiLetters();
@@ -183,60 +186,64 @@ public class kanaLetterActivity extends AppCompatActivity {
         Button button3 = (Button) findViewById(R.id.answer_buton_3);
         Button button4 = (Button) findViewById(R.id.answer_buton_4);
         TextView romajiText = (TextView) findViewById(R.id.romaji_text_view);
-        amountOfWords = 46;
-        int count;
 
         count = rand.nextInt(amountOfWords);
         currentRomaji.add(romajiLetters.get(count));
-        currentKana.add(romajiLetters.get(count));
         button1.setText(hiraganaLetters.get(count));
+        currentKana.add(String.valueOf(button1.getText()));
+        romajiLetters.remove(count);
         hiraganaLetters.remove(count);
         amountOfWords -= 1;
+
         count = rand.nextInt(amountOfWords);
         currentRomaji.add(romajiLetters.get(count));
-        currentKana.add(romajiLetters.get(count));
         button2.setText(hiraganaLetters.get(count));
+        currentKana.add(String.valueOf(button2.getText()));
+        romajiLetters.remove(count);
         hiraganaLetters.remove(count);
         amountOfWords -= 1;
+
         count = rand.nextInt(amountOfWords);
         currentRomaji.add(romajiLetters.get(count));
-        currentKana.add(romajiLetters.get(count));
         button3.setText(hiraganaLetters.get(count));
+        currentKana.add(String.valueOf(button3.getText()));
+        romajiLetters.remove(count);
         hiraganaLetters.remove(count);
         amountOfWords -= 1;
+
         count = rand.nextInt(amountOfWords);
         currentRomaji.add(romajiLetters.get(count));
-        currentKana.add(romajiLetters.get(count));
         button4.setText(hiraganaLetters.get(count));
+        currentKana.add(String.valueOf(button4.getText()));
 
-        final int count2 = rand.nextInt(3);
-
+        final int count2 = rand.nextInt(2);
+        final String current_kana = currentKana.get(count2);
         romajiText.setText(currentRomaji.get(count2));
 
         button1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View V) {
-                if (count2 == 0) {
+                if (current_kana == currentKana.get(0)) {
                     buttonText();
                 }
             }
         });
         button2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View V) {
-                if (count2 == 1) {
+                if (current_kana == currentKana.get(1)) {
                     buttonText();
                 }
             }
         });
         button3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View V) {
-                if (count2 == 2) {
+                if (current_kana == currentKana.get(2)) {
                     buttonText();
                 }
             }
         });
         button4.setOnClickListener(new View.OnClickListener() {
             public void onClick(View V) {
-                if (count2 == 3) {
+                if (current_kana == currentKana.get(3)) {
                     buttonText();
                 }
             }
