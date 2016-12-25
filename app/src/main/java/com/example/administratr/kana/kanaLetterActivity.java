@@ -1,5 +1,6 @@
 package com.example.administratr.kana;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,6 +13,10 @@ public class kanaLetterActivity extends AppCompatActivity {
 
 
     int amountOfWords = 46;
+    int limit = 10;
+    int amountOfTurns = 0;
+    int amountOfMistakes = 0;
+    int amountOfCorrects = 0;
     Random rand = new Random();
     static boolean hir = false;
     static boolean kat = false;
@@ -172,7 +177,33 @@ public class kanaLetterActivity extends AppCompatActivity {
         ButtonAndTextHandling();
     }
 
+    public void results2() {
+        TextView correct = (TextView) findViewById(R.id.correct_view);
+        TextView mistakes = (TextView) findViewById(R.id.mistakes_view);
+        correct.setText("Correct: " + amountOfCorrects);
+        mistakes.setText("Mistakes: " + amountOfMistakes);
+        if (amountOfMistakes == 0 ) {
+            correct.setText("You completed them all!");
+        }
+        if (amountOfCorrects <= 0) {
+            correct.setText("You made to many mistakes!");
+        }
+        findViewById(R.id.return_to_menu).setOnClickListener(new View.OnClickListener() {
+            public void onClick(View vieww) {
+                startActivity(new Intent(kanaLetterActivity.this,MainActivity.class));
+                finish();
+            }
+        });
+        findViewById(R.id.restart_game).setOnClickListener(new View.OnClickListener() {
+            public void onClick(View viewww) {
+                startActivity(new Intent(kanaLetterActivity.this,kanaLetterActivity.class));
+                finish();
+            }
+        });
+    }
     public void ButtonAndTextHandling() {
+
+        amountOfTurns += 1;
         amountOfWords = 46;
         int count;
         hiraganaLetters.clear();
@@ -234,38 +265,57 @@ public class kanaLetterActivity extends AppCompatActivity {
             button4.setText(katakanaLetters.get(count));
         }
 
-        final int count2 = rand.nextInt(2);
+        final int count2 = rand.nextInt(4);
         romajiText.setText(currentRomaji.get(count2));
-
-        button1.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View V) {
-                if (count2 == 0) {
-                    ButtonAndTextHandling();
+        if (amountOfTurns > limit) {
+            setContentView(R.layout.result_layout);
+            results2();
+        } else {
+            button1.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View V) {
+                    if (count2 == 0) {
+                        ButtonAndTextHandling();
+                        amountOfCorrects++;
+                    } else {
+                        amountOfCorrects--;
+                        amountOfMistakes++;
+                    }
                 }
-            }
-        });
-        button2.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View V) {
-                if (count2 == 1) {
-                    ButtonAndTextHandling();
+            });
+            button2.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View V) {
+                    if (count2 == 1) {
+                        ButtonAndTextHandling();
+                        amountOfCorrects++;
+                    } else {
+                        amountOfCorrects--;
+                        amountOfMistakes++;
+                    }
                 }
-            }
-        });
-        button3.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View V) {
-                if (count2 == 2) {
-                    ButtonAndTextHandling();
+            });
+            button3.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View V) {
+                    if (count2 == 2) {
+                        ButtonAndTextHandling();
+                        amountOfCorrects++;
+                    } else {
+                       amountOfCorrects--;
+                       amountOfMistakes++;
+                    }
                 }
-            }
-        });
-        button4.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View V) {
-                if (count2 == 3) {
-                    ButtonAndTextHandling();
+            });
+            button4.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View V) {
+                    if (count2 == 3) {
+                        ButtonAndTextHandling();
+                       amountOfCorrects++;
+                    } else {
+                       amountOfCorrects--;
+                       amountOfMistakes++;
+                    }
                 }
-            }
-        });
-
+            });
+        }
 
     }
 }

@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.Random;
@@ -143,7 +144,7 @@ public class kanaActivity extends AppCompatActivity {
         final TextView kanaTranslationText = (TextView) findViewById(R.id.english_translation);
         kanaText.setText(kanaWords.get(count));
         kanaTranslationText.setText(kanaTranslation.get(count));
-        //kanaTranslationText.setText(kanaTranslation.get(count));
+
         // Check if the input of the EditText is the same as the hiragana from the TextView
         findViewById(R.id.kana_next).setOnClickListener(new View.OnClickListener() {
             @Override
