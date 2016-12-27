@@ -8,15 +8,16 @@
         android:label="Kana"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.example.administratr.kana.MainActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.administratr.kana.kanaActivity" />
-        <activity android:name="com.example.administratr.kana.kanaLetterActivity"></activity>
+        <activity android:name=".kanaActivity" />
+        <activity android:name=".kanaLetterActivity" />
+        <activity android:name=".selectKanaActivity"></activity>
     </application>
 
 </manifest>

@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-         setContentView(R.layout.select_kana_layout);
+
 
     }
 
@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
             kanaActivity.hir = true;
             kanaActivity.kat = false;
         } else {
-            startActivity(new Intent(MainActivity.this, kanaLetterActivity.class));
+            startActivity(new Intent(MainActivity.this, selectKanaActivity.class));
             kanaLetterActivity.hir = true;
             kanaLetterActivity.kat = false;
         }
@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
             kanaActivity.hir = false;
             kanaActivity.kat = true;
         } else {
-            startActivity(new Intent(MainActivity.this, kanaLetterActivity.class));
+            startActivity(new Intent(MainActivity.this, selectKanaActivity.class));
             kanaLetterActivity.hir = false;
             kanaLetterActivity.kat = true;
         }

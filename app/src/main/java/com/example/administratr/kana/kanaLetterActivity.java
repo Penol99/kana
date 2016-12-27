@@ -11,7 +11,13 @@ import java.util.Random;
 
 public class kanaLetterActivity extends AppCompatActivity {
 
-
+    boolean doneSelect = false;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.kana_letter_activity);
+        ButtonAndTextHandling();
+    }
     int amountOfWords = 46;
     int limit = 10;
     int amountOfTurns = 0;
@@ -20,13 +26,13 @@ public class kanaLetterActivity extends AppCompatActivity {
     Random rand = new Random();
     static boolean hir = false;
     static boolean kat = false;
-    ArrayList<String> hiraganaLetters = new ArrayList<String>();
-    ArrayList<String> katakanaLetters = new ArrayList<String>();
+    static ArrayList<String> hiraganaLetters = new ArrayList<String>();
+    static ArrayList<String> katakanaLetters = new ArrayList<String>();
     ArrayList<String> romajiLetters = new ArrayList<String>();
     ArrayList<String> currentRomaji = new ArrayList<String>();
     ArrayList<String> currentKana = new ArrayList<String>();
 
-    public void HiraganaLetters() {
+    public static void HiraganaLetters() {
         hiraganaLetters.add("あ");
         hiraganaLetters.add("い");
         hiraganaLetters.add("う");
@@ -170,12 +176,8 @@ public class kanaLetterActivity extends AppCompatActivity {
         romajiLetters.add("wo");
         romajiLetters.add("n");
     }
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.kana_letter_activity);
-        ButtonAndTextHandling();
-    }
+
+
 
     public void results2() {
         TextView correct = (TextView) findViewById(R.id.correct_view);
