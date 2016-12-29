@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Application</string>
+
+    <string-array name="check_boxes">
+        <item>checkbox</item>
+
+    </string-array>
 </resources>

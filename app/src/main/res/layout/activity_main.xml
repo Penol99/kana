@@ -20,13 +20,49 @@
         android:id="@+id/textView" />
 
 
+    <Switch
+        android:text=" "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/toggle"
+        android:layout_marginBottom="39dp"
+        android:layout_above="@+id/linearLayout"
+        android:layout_centerHorizontal="true"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text = "Words"
+        android:textSize="20sp"
+        android:textColor="#FFFF"
+        android:id="@+id/word_view"
+        android:layout_marginRight="13dp"
+        android:layout_marginEnd="13dp"
+        android:layout_alignBottom="@+id/toggle"
+        android:layout_toLeftOf="@+id/toggle"
+        android:layout_toStartOf="@+id/toggle" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text = "Letters"
+        android:textSize="20sp"
+        android:textColor="#FFFF"
+        android:id="@+id/letter_view"
+        android:layout_marginLeft="20dp"
+        android:layout_alignBottom="@+id/toggle"
+        android:layout_alignLeft="@+id/linearLayout"
+        android:layout_alignStart="@+id/linearLayout" />
+
     <LinearLayout
         android:layout_width="150dp"
         android:layout_height="250dp"
         android:orientation="vertical"
+        android:id="@+id/linearLayout"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:id="@+id/linearLayout">
+        android:layout_toRightOf="@+id/textView"
+        android:layout_toEndOf="@+id/textView">
 
         <Button
             android:id="@+id/hiragana_button"
@@ -68,41 +104,6 @@
             android:onClick="katakanaButtonClick"
             android:textAllCaps="false"/>
     </LinearLayout>
-
-    <Switch
-        android:text=" "
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/toggle"
-        android:layout_marginBottom="39dp"
-        android:layout_above="@+id/linearLayout"
-        android:layout_centerHorizontal="true"
-        />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text = "Words"
-        android:textSize="20sp"
-        android:textColor="#FFFF"
-        android:id="@+id/word_view"
-        android:layout_marginRight="13dp"
-        android:layout_marginEnd="13dp"
-        android:layout_alignBottom="@+id/toggle"
-        android:layout_toLeftOf="@+id/toggle"
-        android:layout_toStartOf="@+id/toggle" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text = "Letters"
-        android:textSize="20sp"
-        android:textColor="#FFFF"
-        android:id="@+id/letter_view"
-        android:layout_marginLeft="20dp"
-        android:layout_alignBottom="@+id/toggle"
-        android:layout_alignLeft="@+id/linearLayout"
-        android:layout_alignStart="@+id/linearLayout" />
 
 
 </RelativeLayout>

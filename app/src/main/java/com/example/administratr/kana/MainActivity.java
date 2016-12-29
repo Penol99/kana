@@ -4,7 +4,10 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Switch;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,6 +29,11 @@ public class MainActivity extends AppCompatActivity {
     }
     //Button presses
     public void kanjiButtonClick(View view)  {
+        ArrayList<Button> kanjis = new ArrayList<Button>();
+        kanjis.add((Button) findViewById(R.id.kanji_button));
+        String[] my_string = getResources().getStringArray(R.array.check_boxes);
+        kanjis.get(0).setText(my_string[0]);
+
 
     }
 
