@@ -1,20 +1,28 @@
 package com.example.administratr.kana;
 
-import android.content.DialogInterface;
+import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class selectKanaActivity extends AppCompatActivity {
 
     static ArrayList<CheckBox> kanaCheckBoxes = new ArrayList<CheckBox>();
-    static ArrayList<Integer> kanaToUse = new ArrayList<Integer>();
+    static ArrayList<Boolean> kanaCheckBoolean = new ArrayList<Boolean>();
+    static ArrayList<Integer> kanaToRemove = new ArrayList<Integer>();
     boolean checkAll = true;
+    boolean save;
+    boolean load;
     int count = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +30,7 @@ public class selectKanaActivity extends AppCompatActivity {
         setContentView(R.layout.select_kana_layout);
         // Clears array so that it can add new additions to it without stacking up
         kanaCheckBoxes.clear();
+        kanaToRemove.clear();
         CheckBoxArray();
         AddKanaToCheckBoxes();
     }
@@ -98,18 +107,17 @@ public class selectKanaActivity extends AppCompatActivity {
         }
     }
     public void continueButton(View view) {
-        for(int i=0;i<46;i++) {
-            if (!kanaCheckBoxes.get(i).isChecked()) {
-                kanaToUse.add(i);
+        if (kanaToRemove.size() == 0) {
+            kanaToRemove.clear();
+            for (int i = 0; i < 46; i++) {
+                if (!kanaCheckBoxes.get(i).isChecked()) {
+                    kanaToRemove.add(i);
+                }
             }
         }
-        if (kanaToUse.size() < 3) {
-            checkAll = true;
-            HandleChecking();
-        } else {
+
             startActivity(new Intent(selectKanaActivity.this, kanaLetterActivity.class));
             finish();
-        }
     }
     public void selectAllButton(View view) {
         if (checkAll) {
@@ -118,5 +126,178 @@ public class selectKanaActivity extends AppCompatActivity {
             checkAll = true;
         }
         HandleChecking();
+    }
+    public void preset1Click(View view) {
+        CheckBox preset2 = (CheckBox) findViewById(R.id.preset2);
+        CheckBox preset3 = (CheckBox) findViewById(R.id.preset3);
+
+        preset2.setChecked(false);
+        preset3.setChecked(false);
+    }
+    public void preset2Click(View view) {
+        CheckBox preset1 = (CheckBox) findViewById(R.id.preset1);
+        CheckBox preset3 = (CheckBox) findViewById(R.id.preset3);
+
+        preset1.setChecked(false);
+        preset3.setChecked(false);
+    }
+    public void preset3Click(View view) {
+        CheckBox preset1 = (CheckBox) findViewById(R.id.preset1);
+        CheckBox preset2 = (CheckBox) findViewById(R.id.preset2);
+
+        preset1.setChecked(false);
+        preset2.setChecked(false);
+    }
+
+
+
+    public void saveButton(View view) {
+        save = true;
+        load = false;
+        saveAndLoad();
+    }
+    public void loadButton(View view) {
+        load = true;
+        save = false;
+        saveAndLoad();
+    }
+
+
+    public void saveAndLoad() {
+        kanaToRemove.clear();
+        CheckBox preset1 = (CheckBox) findViewById(R.id.preset1);
+        CheckBox preset2 = (CheckBox) findViewById(R.id.preset2);
+        CheckBox preset3 = (CheckBox) findViewById(R.id.preset3);
+        String filename1 = "preset1";
+        String filename2 = "preset2";
+        String filename3 = "preset3";
+
+        if (save) {
+            if (preset1.isChecked()) {
+
+                FileOutputStream fos;
+                deleteFile(filename1);
+                try {
+                    kanaCheckBoolean.clear();
+                    for (int i = 0; i < 46; i++) {
+                        if (kanaCheckBoxes.get(i).isChecked()) {
+                            kanaCheckBoolean.add(true);
+                        } else {
+                            kanaCheckBoolean.add(false);
+                        }
+                    }
+                    fos = openFileOutput(filename1, Context.MODE_PRIVATE);
+                    ObjectOutputStream oos = new ObjectOutputStream(fos);
+                    oos.writeObject(kanaCheckBoolean);
+                    fos.close();
+                    oos.close();
+
+                } catch(Exception ex) {
+                    ex.printStackTrace();
+                }
+
+            } else if (preset2.isChecked()) {
+
+                FileOutputStream fos;
+                deleteFile(filename2);
+                try {
+                    kanaCheckBoolean.clear();
+                    for (int i = 0; i < 46; i++) {
+                        if (kanaCheckBoxes.get(i).isChecked()) {
+                            kanaCheckBoolean.add(true);
+                        } else {
+                            kanaCheckBoolean.add(false);
+                        }
+                    }
+                    fos = openFileOutput(filename2, Context.MODE_PRIVATE);
+                    ObjectOutputStream oos = new ObjectOutputStream(fos);
+                    oos.writeObject(kanaCheckBoolean);
+                    fos.close();
+                    oos.close();
+
+                } catch(Exception ex) {
+                    ex.printStackTrace();
+                }
+
+
+            } else if (preset3.isChecked()) {
+
+                FileOutputStream fos;
+                deleteFile(filename3);
+                try {
+                    kanaCheckBoolean.clear();
+                    for (int i = 0; i < 46; i++) {
+                        if (kanaCheckBoxes.get(i).isChecked()) {
+                            kanaCheckBoolean.add(true);
+                        } else {
+                            kanaCheckBoolean.add(false);
+                        }
+                    }
+                    fos = openFileOutput(filename3, Context.MODE_PRIVATE);
+                    ObjectOutputStream oos = new ObjectOutputStream(fos);
+                    oos.writeObject(kanaCheckBoolean);
+                    fos.close();
+                    oos.close();
+
+                } catch(Exception ex) {
+                    ex.printStackTrace();
+                }
+
+
+            }
+        } else if (load) {
+            if (preset1.isChecked()) {
+
+                FileInputStream fis;
+                try {
+                    fis = openFileInput(filename1);
+                    ObjectInputStream ois = new ObjectInputStream(fis);
+                    kanaCheckBoolean = (ArrayList<Boolean>)  ois.readObject();
+                    for (int i = 0; i < 46; i++) {
+                        kanaCheckBoxes.get(i).setChecked(kanaCheckBoolean.get(i).booleanValue());
+
+                    }
+                    fis.close();
+                    ois.close();
+
+                } catch(Exception ex) {
+                    ex.printStackTrace();
+                }
+            } else if (preset2.isChecked()) {
+                FileInputStream fis;
+                try {
+                    fis = openFileInput(filename2);
+                    ObjectInputStream ois = new ObjectInputStream(fis);
+                    kanaCheckBoolean = (ArrayList<Boolean>)  ois.readObject();
+                    for (int i = 0; i < 46; i++) {
+                        kanaCheckBoxes.get(i).setChecked(kanaCheckBoolean.get(i).booleanValue());
+
+                    }
+                    fis.close();
+                    ois.close();
+
+                } catch(Exception ex) {
+                    ex.printStackTrace();
+                }
+
+            } else if (preset3.isChecked()) {
+                FileInputStream fis;
+                try {
+                    fis = openFileInput(filename3);
+                    ObjectInputStream ois = new ObjectInputStream(fis);
+                    kanaCheckBoolean = (ArrayList<Boolean>)  ois.readObject();
+                    for (int i = 0; i < 46; i++) {
+                        kanaCheckBoxes.get(i).setChecked(kanaCheckBoolean.get(i).booleanValue());
+
+                    }
+                    fis.close();
+                    ois.close();
+
+                } catch(Exception ex) {
+                    ex.printStackTrace();
+                }
+
+            }
+        }
     }
 }

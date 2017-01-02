@@ -5,8 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.Random;
@@ -14,15 +12,6 @@ import java.util.Random;
 public class kanaLetterActivity extends AppCompatActivity {
 
     boolean doneSelect = false;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.kana_letter_activity);
-        ButtonAndTextHandling();
-        amountOfTurns = 0;
-        amountOfWords = 0;
-    }
     static int realLimit = 10;
     static int amountOfWords = realLimit;
     int count;
@@ -38,6 +27,23 @@ public class kanaLetterActivity extends AppCompatActivity {
     ArrayList<String> romajiLetters = new ArrayList<String>();
     ArrayList<String> currentRomaji = new ArrayList<String>();
     ArrayList<String> currentKana = new ArrayList<String>();
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.kana_letter_activity);
+        ButtonAndTextHandling();
+        realLimit = 10;
+        amountOfTurns = 0;
+        amountOfWords = realLimit;
+        limit = amountOfWords;
+        amountOfMistakes = 0;
+        amountOfCorrects = 0;
+
+
+    }
+
 
     public static void HiraganaLetters() {
         hiraganaLetters.add("あ");
@@ -86,6 +92,7 @@ public class kanaLetterActivity extends AppCompatActivity {
         hiraganaLetters.add("わ");
         hiraganaLetters.add("を");
         hiraganaLetters.add("ん");
+
     }
     public static void KatakanaLetters() {
         katakanaLetters.add("ア");
@@ -134,6 +141,7 @@ public class kanaLetterActivity extends AppCompatActivity {
         katakanaLetters.add("ワ");
         katakanaLetters.add("ヲ");
         katakanaLetters.add("ン");
+
     }
     public void RomajiLetters() {
         romajiLetters.add("a");
@@ -183,6 +191,7 @@ public class kanaLetterActivity extends AppCompatActivity {
         romajiLetters.add("wo");
         romajiLetters.add("n");
 
+
     }
 
 
@@ -200,14 +209,17 @@ public class kanaLetterActivity extends AppCompatActivity {
         }
         findViewById(R.id.return_to_menu).setOnClickListener(new View.OnClickListener() {
             public void onClick(View vieww) {
-                System.exit(0);
                 startActivity(new Intent(kanaLetterActivity.this,MainActivity.class));
                 finish();
             }
         });
-        Button restart = (Button) findViewById(R.id.restart_game);
-        LinearLayout ll = (LinearLayout) findViewById(R.id.linear_button_layout);
-        ll.removeView(restart);
+        findViewById(R.id.restart_game).setOnClickListener(new View.OnClickListener() {
+            public void onClick(View vieww) {
+                startActivity(new Intent(kanaLetterActivity.this,kanaLetterActivity.class));
+                finish();
+            }
+        });
+
     }
 
 
@@ -222,20 +234,20 @@ public class kanaLetterActivity extends AppCompatActivity {
         HiraganaLetters();
         KatakanaLetters();
         RomajiLetters();
-        if (selectKanaActivity.kanaToUse.size() > 0) {
+        if (selectKanaActivity.kanaToRemove.size() > 0) {
 
-            for (int i = 0; i < selectKanaActivity.kanaToUse.size(); i++) {
-                hiraganaLetters.set(selectKanaActivity.kanaToUse.get(i), "Junk");
-                katakanaLetters.set(selectKanaActivity.kanaToUse.get(i), "Junk");
-                romajiLetters.set(selectKanaActivity.kanaToUse.get(i), "Junk");
+            for (int i = 0; i < selectKanaActivity.kanaToRemove.size(); i++) {
+                hiraganaLetters.set(selectKanaActivity.kanaToRemove.get(i), "Junk");
+                katakanaLetters.set(selectKanaActivity.kanaToRemove.get(i), "Junk");
+                romajiLetters.set(selectKanaActivity.kanaToRemove.get(i), "Junk");
             }
-            for (int i = 0; i < selectKanaActivity.kanaToUse.size() +1 ; i++) {
+            for (int i = 0; i < selectKanaActivity.kanaToRemove.size(); i++) {
                 hiraganaLetters.remove("Junk");
                 katakanaLetters.remove("Junk");
                 romajiLetters.remove("Junk");
             }
-            amountOfWords = hiraganaLetters.size();
         }
+        amountOfWords = hiraganaLetters.size();
         Button button1 = (Button) findViewById(R.id.answer_buton_1);
         Button button2 = (Button) findViewById(R.id.answer_buton_2);
         Button button3 = (Button) findViewById(R.id.answer_buton_3);

@@ -79,18 +79,6 @@
             android:onClick="hiraganaButtonClick"
             android:textAllCaps="false"/>
         <Button
-            android:id="@+id/kanji_button"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:text="Kanji"
-            android:textSize="25sp"
-            android:background="#03A9F4"
-            android:fontFamily="sans-serif"
-            android:textColor="#212121"
-            android:onClick="kanjiButtonClick"
-            android:textAllCaps="false"/>
-        <Button
             android:id="@+id/katakana_button"
             android:layout_width="match_parent"
             android:layout_height="0dp"

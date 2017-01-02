@@ -28,14 +28,6 @@ public class MainActivity extends AppCompatActivity {
         return switchState;
     }
     //Button presses
-    public void kanjiButtonClick(View view)  {
-        ArrayList<Button> kanjis = new ArrayList<Button>();
-        kanjis.add((Button) findViewById(R.id.kanji_button));
-        String[] my_string = getResources().getStringArray(R.array.check_boxes);
-        kanjis.get(0).setText(my_string[0]);
-
-
-    }
 
     public void hiraganaButtonClick(View view)  {
         if (toggleWordLetterSwitch()== false) {
