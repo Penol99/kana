@@ -34,7 +34,11 @@ public class kanaLetterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.kana_letter_activity);
         ButtonAndTextHandling();
-        realLimit = 10;
+        if (selectKanaActivity.kana_amount <= 0) {
+            realLimit = 71;
+        } else {
+            realLimit = selectKanaActivity.kana_amount - 1;
+        }
         amountOfTurns = 0;
         amountOfWords = realLimit;
         limit = amountOfWords;
@@ -92,6 +96,31 @@ public class kanaLetterActivity extends AppCompatActivity {
         hiraganaLetters.add("わ");
         hiraganaLetters.add("を");
         hiraganaLetters.add("ん");
+        hiraganaLetters.add("が");
+        hiraganaLetters.add("ぎ");
+        hiraganaLetters.add("ぐ");
+        hiraganaLetters.add("げ");
+        hiraganaLetters.add("ご");
+        hiraganaLetters.add("ざ");
+        hiraganaLetters.add("じ");
+        hiraganaLetters.add("ず");
+        hiraganaLetters.add("ぜ");
+        hiraganaLetters.add("ぞ");
+        hiraganaLetters.add("だ");
+        hiraganaLetters.add("ぢ");
+        hiraganaLetters.add("づ");
+        hiraganaLetters.add("で");
+        hiraganaLetters.add("ど");
+        hiraganaLetters.add("ば");
+        hiraganaLetters.add("び");
+        hiraganaLetters.add("ぶ");
+        hiraganaLetters.add("べ");
+        hiraganaLetters.add("ぼ");
+        hiraganaLetters.add("ぱ");
+        hiraganaLetters.add("ぴ");
+        hiraganaLetters.add("ぷ");
+        hiraganaLetters.add("ぺ");
+        hiraganaLetters.add("ぽ");
 
     }
     public static void KatakanaLetters() {
@@ -141,6 +170,31 @@ public class kanaLetterActivity extends AppCompatActivity {
         katakanaLetters.add("ワ");
         katakanaLetters.add("ヲ");
         katakanaLetters.add("ン");
+        katakanaLetters.add("ガ");
+        katakanaLetters.add("ギ");
+        katakanaLetters.add("グ");
+        katakanaLetters.add("ゲ");
+        katakanaLetters.add("ゴ");
+        katakanaLetters.add("ザ");
+        katakanaLetters.add("ジ");
+        katakanaLetters.add("ズ");
+        katakanaLetters.add("ゼ");
+        katakanaLetters.add("ゾ");
+        katakanaLetters.add("ダ");
+        katakanaLetters.add("ジ");
+        katakanaLetters.add("ズ");
+        katakanaLetters.add("デ");
+        katakanaLetters.add("ド");
+        katakanaLetters.add("バ");
+        katakanaLetters.add("ビ");
+        katakanaLetters.add("ブ");
+        katakanaLetters.add("ベ");
+        katakanaLetters.add("ボ");
+        katakanaLetters.add("パ");
+        katakanaLetters.add("ピ");
+        katakanaLetters.add("プ");
+        katakanaLetters.add("ペ");
+        katakanaLetters.add("ポ");
 
     }
     public void RomajiLetters() {
@@ -190,8 +244,31 @@ public class kanaLetterActivity extends AppCompatActivity {
         romajiLetters.add("wa");
         romajiLetters.add("wo");
         romajiLetters.add("n");
-
-
+        romajiLetters.add("ga");
+        romajiLetters.add("gi");
+        romajiLetters.add("gu");
+        romajiLetters.add("ge");
+        romajiLetters.add("go");
+        romajiLetters.add("za");
+        romajiLetters.add("ji");
+        romajiLetters.add("zu");
+        romajiLetters.add("ze");
+        romajiLetters.add("zo");
+        romajiLetters.add("da");
+        romajiLetters.add("ji");
+        romajiLetters.add("zu");
+        romajiLetters.add("de");
+        romajiLetters.add("do");
+        romajiLetters.add("ba");
+        romajiLetters.add("bi");
+        romajiLetters.add("bu");
+        romajiLetters.add("be");
+        romajiLetters.add("bo");
+        romajiLetters.add("pa");
+        romajiLetters.add("pi");
+        romajiLetters.add("pu");
+        romajiLetters.add("pe");
+        romajiLetters.add("po");
     }
 
 

@@ -57,6 +57,13 @@ public class kanaActivity extends AppCompatActivity {
             kanaAnswers.add("wakarimasen");
             kanaAnswers.add("yoku wakarimasu");
             kanaAnswers.add("ogenki desu ka");
+            kanaAnswers.add("zettai");
+            kanaAnswers.add("irashaimasu");
+            kanaAnswers.add("wakarimashita");
+            kanaAnswers.add("onaka ga sukimashita");
+            kanaAnswers.add("nodo ga kawakimashita");
+            kanaAnswers.add("nodo ga kawakimashita");
+            kanaAnswers.add("onaka ga ippai desu");
             changeKana();
         } else if (kat == true) {
             kanaAnswers.clear();
@@ -85,6 +92,12 @@ public class kanaActivity extends AppCompatActivity {
             kanaWords.add("わかりません");
             kanaWords.add("よくわかります");
             kanaWords.add("おげんきですか");
+            kanaWords.add("ぜったい");
+            kanaWords.add("いらしゃいます");
+            kanaWords.add("わかりました");
+            kanaWords.add("おなかがすきました");
+            kanaWords.add("のどがかわきました");
+            kanaWords.add("おなかがいっぱいです");
         } else if (kat == true) {
             kanaWords.clear();
             kanaWords.add("フライドポテト");
@@ -111,6 +124,14 @@ public class kanaActivity extends AppCompatActivity {
             kanaTranslation.add("I don't understand");
             kanaTranslation.add("I understand you perfectly");
             kanaTranslation.add("How are you");
+            kanaTranslation.add("Absolutely");
+            kanaTranslation.add("Welcome");
+            kanaTranslation.add("Understood");
+            kanaTranslation.add("I'm hungry/Empty stomach");
+            kanaTranslation.add("I'm thirsty/My throat is dry");
+            kanaTranslation.add("I'm full");
+
+
         } else if (kat == true) {
             kanaTranslation.clear();
             kanaTranslation.add("French fries");

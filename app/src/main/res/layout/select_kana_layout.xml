@@ -4,10 +4,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
+
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:text="Amount of Questions:"
+            android:textSize="20sp"
+            android:layout_marginLeft="8dp"
+            android:id="@+id/question_text"/>
+        <EditText
+            android:layout_width="100dp"
+            android:layout_toRightOf="@+id/question_text"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:text="71"
+            android:ems="10"
+            android:id="@+id/kana_amount" />
 
         <Button
             android:id="@+id/select_all_button"
@@ -15,7 +34,8 @@
             android:layout_height="wrap_content"
             android:text="Select/Deselect All"
             android:layout_marginLeft="4dp"
-            android:onClick="selectAllButton"/>
+            android:onClick="selectAllButton"
+            android:layout_below="@id/kana_amount"/>
         <Button
             android:id="@+id/continue_button"
             android:layout_width="wrap_content"
@@ -23,7 +43,8 @@
             android:layout_alignParentRight="true"
             android:layout_marginRight="8dp"
             android:text="Continue"
-            android:onClick="continueButton"/>
+            android:onClick="continueButton"
+            android:layout_below="@id/kana_amount"/>
 
         <Button
             android:id="@+id/load_button"
@@ -40,6 +61,7 @@
             android:layout_width="70dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/load_button"
+            android:layout_marginLeft="8dp"
             android:background="#03A9F4"
             android:id="@+id/preset1"
             android:textSize="30sp"
@@ -50,6 +72,7 @@
             android:layout_height="wrap_content"
             android:background="#03A9F4"
             android:layout_below="@id/load_button"
+            android:layout_marginLeft="8dp"
             android:layout_toRightOf="@id/preset1"
             android:id="@+id/preset2"
             android:textSize="30sp"
@@ -60,6 +83,7 @@
             android:layout_height="wrap_content"
             android:background="#03A9F4"
             android:layout_below="@id/load_button"
+            android:layout_marginLeft="8dp"
             android:layout_toRightOf="@id/preset2"
             android:id="@+id/preset3"
             android:textSize="30sp"
@@ -68,7 +92,7 @@
             android:text="Presets"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="4dp"
+            android:layout_marginLeft="8dp"
             android:layout_alignParentLeft="true"
             android:layout_below="@id/select_all_button"
             android:layout_toRightOf="@id/preset2"
@@ -444,6 +468,201 @@
             android:layout_height="wrap_content"
             android:id="@+id/checkBox46"
             android:layout_below="@id/checkBox41"
+            android:textSize="40sp"/>
+        <CheckBox
+            android:text="A"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkBox47"
+            android:layout_below="@id/checkBox41"
+            android:layout_toRightOf="@id/checkBox1"
+            android:textSize="40sp"/>
+        <CheckBox
+            android:text="A"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkBox48"
+            android:layout_below="@id/checkBox41"
+            android:layout_toRightOf="@id/checkBox2"
+            android:textSize="40sp"/>
+        <CheckBox
+            android:text="A"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkBox49"
+            android:layout_below="@id/checkBox41"
+            android:layout_toRightOf="@id/checkBox3"
+            android:textSize="40sp"/>
+        <CheckBox
+            android:text="A"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkBox50"
+            android:layout_below="@id/checkBox41"
+            android:layout_toRightOf="@id/checkBox4"
+            android:textSize="40sp"/>
+        <CheckBox
+            android:text="A"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkBox51"
+            android:layout_below="@id/checkBox46"
+            android:textSize="40sp"/>
+        <CheckBox
+            android:text="A"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkBox52"
+            android:layout_below="@id/checkBox46"
+            android:layout_toRightOf="@id/checkBox1"
+            android:textSize="40sp"/>
+        <CheckBox
+            android:text="A"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkBox53"
+            android:layout_below="@id/checkBox46"
+            android:layout_toRightOf="@id/checkBox2"
+            android:textSize="40sp"/>
+        <CheckBox
+            android:text="A"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkBox54"
+            android:layout_below="@id/checkBox46"
+            android:layout_toRightOf="@id/checkBox3"
+            android:textSize="40sp"/>
+        <CheckBox
+            android:text="A"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkBox55"
+            android:layout_below="@id/checkBox46"
+            android:layout_toRightOf="@id/checkBox4"
+            android:textSize="40sp"/>
+        <CheckBox
+            android:text="A"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkBox56"
+            android:layout_below="@id/checkBox51"
+            android:textSize="40sp"/>
+        <CheckBox
+            android:text="A"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkBox57"
+            android:layout_below="@id/checkBox51"
+            android:layout_toRightOf="@id/checkBox1"
+            android:textSize="40sp"/>
+        <CheckBox
+            android:text="A"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkBox58"
+            android:layout_below="@id/checkBox51"
+            android:layout_toRightOf="@id/checkBox2"
+            android:textSize="40sp"/>
+        <CheckBox
+            android:text="A"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkBox59"
+            android:layout_below="@id/checkBox51"
+            android:layout_toRightOf="@id/checkBox3"
+            android:textSize="40sp"/>
+        <CheckBox
+            android:text="A"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkBox60"
+            android:layout_below="@id/checkBox51"
+            android:layout_toRightOf="@id/checkBox4"
+            android:textSize="40sp"/>
+        <CheckBox
+            android:text="A"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkBox61"
+            android:layout_below="@id/checkBox56"
+            android:textSize="40sp"/>
+        <CheckBox
+            android:text="A"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkBox62"
+            android:layout_below="@id/checkBox56"
+            android:layout_toRightOf="@id/checkBox1"
+            android:textSize="40sp"/>
+        <CheckBox
+            android:text="A"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkBox63"
+            android:layout_below="@id/checkBox56"
+            android:layout_toRightOf="@id/checkBox2"
+            android:textSize="40sp"/>
+        <CheckBox
+            android:text="A"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkBox64"
+            android:layout_below="@id/checkBox56"
+            android:layout_toRightOf="@id/checkBox3"
+            android:textSize="40sp"/>
+        <CheckBox
+            android:text="A"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkBox65"
+            android:layout_below="@id/checkBox56"
+            android:layout_toRightOf="@id/checkBox4"
+            android:textSize="40sp"/>
+        <CheckBox
+            android:text="A"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkBox66"
+            android:layout_below="@id/checkBox61"
+            android:textSize="40sp"/>
+        <CheckBox
+            android:text="A"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkBox67"
+            android:layout_below="@id/checkBox61"
+            android:layout_toRightOf="@id/checkBox1"
+            android:textSize="40sp"/>
+        <CheckBox
+            android:text="A"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkBox68"
+            android:layout_below="@id/checkBox61"
+            android:layout_toRightOf="@id/checkBox2"
+            android:textSize="40sp"/>
+        <CheckBox
+            android:text="A"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkBox69"
+            android:layout_below="@id/checkBox61"
+            android:layout_toRightOf="@id/checkBox3"
+            android:textSize="40sp"/>
+        <CheckBox
+            android:text="A"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkBox70"
+            android:layout_below="@id/checkBox61"
+            android:layout_toRightOf="@id/checkBox4"
+            android:textSize="40sp"/>
+        <CheckBox
+            android:text="A"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkBox71"
+            android:layout_below="@id/checkBox66"
             android:textSize="40sp"/>
 
         <Button

@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.EditText;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -20,6 +21,7 @@ public class selectKanaActivity extends AppCompatActivity {
     static ArrayList<CheckBox> kanaCheckBoxes = new ArrayList<CheckBox>();
     static ArrayList<Boolean> kanaCheckBoolean = new ArrayList<Boolean>();
     static ArrayList<Integer> kanaToRemove = new ArrayList<Integer>();
+    static int kana_amount;
     boolean checkAll = true;
     boolean save;
     boolean load;
@@ -83,6 +85,32 @@ public class selectKanaActivity extends AppCompatActivity {
         kanaCheckBoxes.add((CheckBox) findViewById(R.id.checkBox44));
         kanaCheckBoxes.add((CheckBox) findViewById(R.id.checkBox45));
         kanaCheckBoxes.add((CheckBox) findViewById(R.id.checkBox46));
+        kanaCheckBoxes.add((CheckBox) findViewById(R.id.checkBox47));
+        kanaCheckBoxes.add((CheckBox) findViewById(R.id.checkBox48));
+        kanaCheckBoxes.add((CheckBox) findViewById(R.id.checkBox49));
+        kanaCheckBoxes.add((CheckBox) findViewById(R.id.checkBox50));
+        kanaCheckBoxes.add((CheckBox) findViewById(R.id.checkBox51));
+        kanaCheckBoxes.add((CheckBox) findViewById(R.id.checkBox52));
+        kanaCheckBoxes.add((CheckBox) findViewById(R.id.checkBox53));
+        kanaCheckBoxes.add((CheckBox) findViewById(R.id.checkBox54));
+        kanaCheckBoxes.add((CheckBox) findViewById(R.id.checkBox55));
+        kanaCheckBoxes.add((CheckBox) findViewById(R.id.checkBox56));
+        kanaCheckBoxes.add((CheckBox) findViewById(R.id.checkBox57));
+        kanaCheckBoxes.add((CheckBox) findViewById(R.id.checkBox58));
+        kanaCheckBoxes.add((CheckBox) findViewById(R.id.checkBox59));
+        kanaCheckBoxes.add((CheckBox) findViewById(R.id.checkBox60));
+        kanaCheckBoxes.add((CheckBox) findViewById(R.id.checkBox61));
+        kanaCheckBoxes.add((CheckBox) findViewById(R.id.checkBox62));
+        kanaCheckBoxes.add((CheckBox) findViewById(R.id.checkBox63));
+        kanaCheckBoxes.add((CheckBox) findViewById(R.id.checkBox64));
+        kanaCheckBoxes.add((CheckBox) findViewById(R.id.checkBox65));
+        kanaCheckBoxes.add((CheckBox) findViewById(R.id.checkBox66));
+        kanaCheckBoxes.add((CheckBox) findViewById(R.id.checkBox67));
+        kanaCheckBoxes.add((CheckBox) findViewById(R.id.checkBox68));
+        kanaCheckBoxes.add((CheckBox) findViewById(R.id.checkBox69));
+        kanaCheckBoxes.add((CheckBox) findViewById(R.id.checkBox70));
+        kanaCheckBoxes.add((CheckBox) findViewById(R.id.checkBox71));
+
     }
     // Add kana to the checkboxes
     public void AddKanaToCheckBoxes() {
@@ -91,33 +119,36 @@ public class selectKanaActivity extends AppCompatActivity {
         kanaLetterActivity.HiraganaLetters();
         kanaLetterActivity.KatakanaLetters();
         if (kanaLetterActivity.hir) {
-            for (int i=0;i<46;i++) {
+            for (int i=0;i<71;i++) {
                 kanaCheckBoxes.get(i).setText(kanaLetterActivity.hiraganaLetters.get(i));
             }
         } else {
-            for (int i=0;i<46;i++) {
+            for (int i=0;i<71;i++) {
                 kanaCheckBoxes.get(i).setText(kanaLetterActivity.katakanaLetters.get(i));
             }
         }
         HandleChecking();
     }
     private void HandleChecking() {
-        for (int i = 0; i < 46; i++) {
+        for (int i = 0; i < 71; i++) {
             kanaCheckBoxes.get(i).setChecked(checkAll);
         }
     }
     public void continueButton(View view) {
         if (kanaToRemove.size() == 0) {
             kanaToRemove.clear();
-            for (int i = 0; i < 46; i++) {
+            for (int i = 0; i < 71; i++) {
                 if (!kanaCheckBoxes.get(i).isChecked()) {
                     kanaToRemove.add(i);
                 }
             }
         }
 
-            startActivity(new Intent(selectKanaActivity.this, kanaLetterActivity.class));
-            finish();
+
+        EditText kanaAmount = (EditText) findViewById(R.id.kana_amount);
+        kana_amount = Integer.valueOf(kanaAmount.getText().toString());
+        startActivity(new Intent(selectKanaActivity.this, kanaLetterActivity.class));
+        finish();
     }
     public void selectAllButton(View view) {
         if (checkAll) {
@@ -179,7 +210,7 @@ public class selectKanaActivity extends AppCompatActivity {
                 deleteFile(filename1);
                 try {
                     kanaCheckBoolean.clear();
-                    for (int i = 0; i < 46; i++) {
+                    for (int i = 0; i < 71; i++) {
                         if (kanaCheckBoxes.get(i).isChecked()) {
                             kanaCheckBoolean.add(true);
                         } else {
@@ -202,7 +233,7 @@ public class selectKanaActivity extends AppCompatActivity {
                 deleteFile(filename2);
                 try {
                     kanaCheckBoolean.clear();
-                    for (int i = 0; i < 46; i++) {
+                    for (int i = 0; i < 71; i++) {
                         if (kanaCheckBoxes.get(i).isChecked()) {
                             kanaCheckBoolean.add(true);
                         } else {
@@ -226,7 +257,7 @@ public class selectKanaActivity extends AppCompatActivity {
                 deleteFile(filename3);
                 try {
                     kanaCheckBoolean.clear();
-                    for (int i = 0; i < 46; i++) {
+                    for (int i = 0; i < 71; i++) {
                         if (kanaCheckBoxes.get(i).isChecked()) {
                             kanaCheckBoolean.add(true);
                         } else {
@@ -253,7 +284,7 @@ public class selectKanaActivity extends AppCompatActivity {
                     fis = openFileInput(filename1);
                     ObjectInputStream ois = new ObjectInputStream(fis);
                     kanaCheckBoolean = (ArrayList<Boolean>)  ois.readObject();
-                    for (int i = 0; i < 46; i++) {
+                    for (int i = 0; i < 71; i++) {
                         kanaCheckBoxes.get(i).setChecked(kanaCheckBoolean.get(i).booleanValue());
 
                     }
@@ -269,7 +300,7 @@ public class selectKanaActivity extends AppCompatActivity {
                     fis = openFileInput(filename2);
                     ObjectInputStream ois = new ObjectInputStream(fis);
                     kanaCheckBoolean = (ArrayList<Boolean>)  ois.readObject();
-                    for (int i = 0; i < 46; i++) {
+                    for (int i = 0; i < 71; i++) {
                         kanaCheckBoxes.get(i).setChecked(kanaCheckBoolean.get(i).booleanValue());
 
                     }
@@ -286,7 +317,7 @@ public class selectKanaActivity extends AppCompatActivity {
                     fis = openFileInput(filename3);
                     ObjectInputStream ois = new ObjectInputStream(fis);
                     kanaCheckBoolean = (ArrayList<Boolean>)  ois.readObject();
-                    for (int i = 0; i < 46; i++) {
+                    for (int i = 0; i < 71; i++) {
                         kanaCheckBoxes.get(i).setChecked(kanaCheckBoolean.get(i).booleanValue());
 
                     }
